@@ -16,6 +16,11 @@ function percent() {
     btn = document.querySelector("#percent"); // 获取图标
 
   result <= 99 || (result = 99), (btn.innerHTML = result);
+
+  /* 到达顶部时，导航栏内容变为菜单 */
+  if (a === 0 && document.getElementById('page-header').classList.contains('nav-fixed')==true) {
+    document.getElementById('page-header').classList.add('nav-visible')
+  }
 }
 
 document.getElementById("page-name").innerText = document.title.split(" | Shine")[0];

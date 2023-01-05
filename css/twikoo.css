@@ -59,7 +59,7 @@
     border-radius: 10px;
 }
 
-#aside-content .card-info .card-info-social-icons, #bber-talk .talk-list, .tk-content * {
+.tk-content * {
     margin: 0;
 }
 /************ twikoo评论中的背景框样式调整 ************/

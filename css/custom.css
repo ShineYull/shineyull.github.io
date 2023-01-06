@@ -782,7 +782,7 @@ div#author-info__sayhi {
   text-align: left;
   background: var(--anzhiyu-white-op);
   color: var(--font-color);
-  border: var(--style-border);
+  border: 1px solid #e3e8f7;
   font-size: 12px;
   margin-right: auto;
   padding: 5px 8px;

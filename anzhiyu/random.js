@@ -1,1 +1,1 @@
-var posts=["EasyEngine.html","EasyLua.html","Design-Patterns.html","EasyDB.html","EasyDocker.html","EasyRPC.html","Game-making-from-my-perspective.html","GameUE-Slolo.html"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["EasyEngine.html","Design-Patterns.html","EasyDB.html","EasyLua.html","EasyDocker.html","Game-making-from-my-perspective.html","GameUE-Slolo.html","EasyRPC.html"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};

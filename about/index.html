@@ -6,7 +6,7 @@
 <meta property="og:description" content=".reward_box {     display: flex;     flex-wrap: wrap;     gap: 8px; } .reward_card {     margin: 0;     width: calc(100% / 5 - 7px);  /* 正常页面下，一行显示多少个打赏卡片 */     box-shadow: 0 2px 10px -4px #2c2d300c">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-19T11:46:33.000Z">
-<meta property="article:modified_time" content="2023-01-07T09:33:23.429Z">
+<meta property="article:modified_time" content="2023-01-07T11:12:58.934Z">
 <meta property="article:author" content="Shine Yu">
 <meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/milkTea_favicon_200.png"><link rel="canonical" href="https://blog.shineyu.cn/about/"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="google-site-verification" content="TCLzobHOFmdvTPFMUkeUYwSN7_TgonUOsCNNrkhSbXA"><meta name="baidu-site-verification" content="code-EZfnbpdCGK"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
@@ -50,7 +50,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-01-07 17:33:23'
+  postUpdate: '2023-01-07 19:12:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -447,7 +447,7 @@ fetch('https://v6-widget.51.la/v6/JvsrzhA4LXFetL2L/quote.js').then(res => res.te
             color: color
           }
         },
-        data: ["EasyEngine","EasyLua","设计模式","EasyDB","EasyDocker","EasyRPC","虚幻游戏开发","游戏开发"]
+        data: ["EasyEngine","EasyLua","设计模式","EasyDB","虚幻游戏开发","EasyDocker","游戏开发","EasyRPC"]
       },
       yAxis: {
         name: '文章篇数',
@@ -475,7 +475,7 @@ fetch('https://v6-widget.51.la/v6/JvsrzhA4LXFetL2L/quote.js').then(res => res.te
       series: [{
         name: '文章篇数',
         type: 'bar',
-        data: [{"name":"EasyEngine","value":1,"path":"tags/EasyEngine/"},{"name":"EasyLua","value":1,"path":"tags/EasyLua/"},{"name":"设计模式","value":1,"path":"tags/设计模式/"},{"name":"EasyDB","value":1,"path":"tags/EasyDB/"},{"name":"EasyDocker","value":1,"path":"tags/EasyDocker/"},{"name":"EasyRPC","value":1,"path":"tags/EasyRPC/"},{"name":"虚幻游戏开发","value":1,"path":"tags/虚幻游戏开发/"},{"name":"游戏开发","value":1,"path":"tags/游戏开发/"}],
+        data: [{"name":"EasyEngine","value":1,"path":"tags/EasyEngine/"},{"name":"EasyLua","value":1,"path":"tags/EasyLua/"},{"name":"设计模式","value":1,"path":"tags/设计模式/"},{"name":"EasyDB","value":1,"path":"tags/EasyDB/"},{"name":"虚幻游戏开发","value":1,"path":"tags/虚幻游戏开发/"},{"name":"EasyDocker","value":1,"path":"tags/EasyDocker/"},{"name":"游戏开发","value":1,"path":"tags/游戏开发/"},{"name":"EasyRPC","value":1,"path":"tags/EasyRPC/"}],
         itemStyle: {
           borderRadius: [5, 5, 0, 0],
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -510,10 +510,15 @@ fetch('https://v6-widget.51.la/v6/JvsrzhA4LXFetL2L/quote.js').then(res => res.te
         }
       }]
     };
-    tagsChart.setOption(tagsOption);
-    window.addEventListener('resize', () => { 
+    setRotate();
+    window.addEventListener('resize', () => {
+      setRotate();
       tagsChart.resize();
     });
+    function setRotate() {
+      (document.body.clientWidth<=768) ? tagsOption.xAxis.axisLabel.rotate = -90 : tagsOption.xAxis.axisLabel.rotate = 0
+      tagsChart.setOption(tagsOption)
+    }
     tagsChart.on('click', 'series', (event) => {
       if(event.data.path) window.location.href = '/' + event.data.path;
     });
@@ -553,7 +558,7 @@ fetch('https://v6-widget.51.la/v6/JvsrzhA4LXFetL2L/quote.js').then(res => res.te
         radius: ['15%', '90%'],
         center: ['50%', '55%'],
         sort: 'desc',
-        data: [{"name":"开源","value":6,"path":"categories/开源/","id":"clclr59h40006oony9drx0cub","parentId":"0"},{"name":"技术","value":1,"path":"categories/技术/","id":"clclr59hd000moony3mp2byyi","parentId":"0"},{"name":"生活","value":1,"path":"categories/生活/","id":"clclr59hg000voonydccfehup","parentId":"0"}],
+        data: [{"name":"开源","value":6,"path":"categories/开源/","id":"clclzrve900069cnyaeoq8l4z","parentId":"0"},{"name":"技术","value":1,"path":"categories/技术/","id":"clclzrvep000m9cny2nq5h0rk","parentId":"0"},{"name":"生活","value":1,"path":"categories/生活/","id":"clclzrves000u9cny9ft9d841","parentId":"0"}],
         itemStyle: {
           borderColor: '#fff',
           borderWidth: 2,
@@ -575,7 +580,7 @@ fetch('https://v6-widget.51.la/v6/JvsrzhA4LXFetL2L/quote.js').then(res => res.te
           color: color,
           formatter: '{b} : {c} ({d}%)'
         },
-        data: [{"name":"开源","value":6,"path":"categories/开源/","id":"clclr59h40006oony9drx0cub","parentId":"0"},{"name":"技术","value":1,"path":"categories/技术/","id":"clclr59hd000moony3mp2byyi","parentId":"0"},{"name":"生活","value":1,"path":"categories/生活/","id":"clclr59hg000voonydccfehup","parentId":"0"}],
+        data: [{"name":"开源","value":6,"path":"categories/开源/","id":"clclzrve900069cnyaeoq8l4z","parentId":"0"},{"name":"技术","value":1,"path":"categories/技术/","id":"clclzrvep000m9cny2nq5h0rk","parentId":"0"},{"name":"生活","value":1,"path":"categories/生活/","id":"clclzrves000u9cny9ft9d841","parentId":"0"}],
         itemStyle: {
           emphasis: {
             shadowBlur: 10,

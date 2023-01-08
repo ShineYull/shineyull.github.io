@@ -845,3 +845,10 @@ div#author-info__sayhi {
   color: var(--anzhiyu-white)
 }
 /************************************************* 个人资料卡片 *************************************************/
+
+/* 手机端侧边常驻固定浮窗小头像组件 */
+@media screen and (max-width: 768px) {
+  #card-newest-comments {
+      max-height: 600px !important;
+  }
+}

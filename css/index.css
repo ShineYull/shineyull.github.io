@@ -7162,7 +7162,7 @@ blockquote.pullquote.right {
   color: var(--anzhiyu-white);
 }
 .author-content-item.comic-content::after {
-  box-shadow: 0 -48px 203px 11px #75bdf4 inset;
+  box-shadow: 0 -48px 203px 11px #ffffff inset;
   position: absolute;
   content: "";
   width: 100%;
@@ -7331,10 +7331,16 @@ blockquote.pullquote.right {
     padding: unset;
 }
 
-/* 爱好番剧卡片中的按钮样式 */
+/* 爱好电影卡片中的按钮样式 */
 #about-page > div:nth-child(9) > div.author-content-item.comic-content > div > div.content-bottom > div > a {
     margin-right: unset;
     padding: unset;
+}
+
+/* 爱好电影卡片中的字体样式 */
+#about-page > div:nth-child(9) > div.author-content-item.comic-content > div > span,
+#about-page > div:nth-child(9) > div.author-content-item.comic-content > div > div.author-content-item-tips {
+    color: #4c4948;
 }
 
 /* 音乐偏好卡片中的按钮样式 */

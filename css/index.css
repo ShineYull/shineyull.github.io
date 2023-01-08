@@ -7354,6 +7354,11 @@ blockquote.pullquote.right {
     margin-right: unset;
     padding: unset;
 }
+
+/* 打赏卡片的遮罩样式 */
+#about-page > div:nth-child(12) > div{
+    overflow: unset;
+}
 .author-content-item.careers {
   min-height: 400px;
 }

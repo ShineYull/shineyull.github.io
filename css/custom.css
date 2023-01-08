@@ -257,191 +257,6 @@ a.banner-button {
 }
 /******************************* 即可短文顶部图样式 *******************************/
 
-/******************************* 归档页,分类页 *******************************/
-#archive,#tag,#category {
-  padding: 19px 24px;
-}
-
-.article-sort-title{
-  font-weight: bold;
-  font-size: 1.7em;
-  margin-left: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-}
-
-.article-sort-item::before, .article-sort-title::before, .article-sort-title::after {
-  content: none;
-}
-
-.article-sort .year{
-  width:100%!important;
-  border-bottom:dashed 5px var(--ichika-color);
-  font-size:26px;
-}
-
-.article-sort{
-  border:none;
-  display:flex;
-  flex-wrap:wrap;
-  padding:0;
-  margin-left: 0px;
-}
-
-.article-sort-item:not(.year){
-  padding:8px 10px;
-  width:calc(50% - 0.8rem);
-  margin:0.4rem;
-  border:2px solid var(--ichika-color);
-  border-radius:15px;
-  background:var(--card-bg);
-  transition:0.5s;
-  height:120px;
-}
-
-.article-sort-item-a{
-  position:absolute;
-  width:100%;
-  height:100%;
-}
-
-.article-sort-item-img{
-  transition:0.5s;
-  height:90px;
-  width:140px;
-}
-
-.article-sort-item > a >img{
-  border-radius:15px;
-}
-
-.article-sort-item-title {
-  font-size: 22px;
-  padding-left: 10px;
-  margin: 10px 0;
-  line-height:25px;
-  text-overflow:ellipsis;
-}
-
-.article-sort-item-title:hover{
-  transform:none;
-}
-
-.article-sort-meta{
-  height:max-content;
-  position:relative;
-}
-
-.article-sort-meta > .article-meta-wrap{
-  float:left;
-}
-
-.article-sort-meta > .article-sort-item-time{
-  float:right;
-}
-
-.article-sort-item-categories,.article-sort-item-tags{
-  margin:0 3px;
-  padding:5px 8px;
-  border-radius:25px;
-  border:1px solid var(--dark-grey);
-  font-size:12px;
-  transition:0.5s;
-}
-
-.article-sort-item-info > div:not(.article-sort-meta){
-  display:flex;
-}
-
-.article-sort-description,.article-sort-item > i{
-  width:0;
-  opacity:0;
-  overflow:hidden;
-  transition:0.5s;
-}
-
-.article-sort-description {
-  width: 0;
-  height: 59px;
-  vertical-align: middle;
-  margin: 5px 10px 0 15px;
-  text-overflow:ellipsis;
-}
-
-.article-sort-item:hover:not(.year){
-  background-color:var(--ichika-color);
-  box-shadow: 0 0 10px var(--ichika-color);
-}
-
-.article-sort-item:hover:not(.year){
-  background-color:var(--ichika-color);
-  box-shadow: 0 0 10px var(--ichika-color);
-}
-
-.article-sort-item:hover:not(.year) .article-sort-description,.article-sort-item:hover:not(.year) > i{
-  width:auto;
-  opacity:1;
-}
-
-.article-sort-item:hover:not(.year) .article-sort-description{
-  width:auto;
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-img{
-  transition:0.5s;
-  width:0;
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-title{
-  color:var(--ichika-font-white)!important;
-}
-
-.article-sort-item:hover:not(.year) .article-meta-wrap a,.article-sort-item:hover:not(.year) .article-sort-description,.article-sort-item:hover:not(.year) .article-sort-item-time{
-  color:var(--ichika-light-grey)!important;
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-categories{
-  border:1.5px solid var(--ichika-green);
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-tags{
-  border:1.5px solid var(--ichika-purple);
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-categories:hover{
-  background:var(--ichika-green);
-  box-shadow:0 0 5px var(--ichika-green);
-}
-
-.article-sort-item:hover:not(.year) .article-sort-item-tags:hover{
-  background:var(--ichika-purple);
-  box-shadow:0 0 5px var(--ichika-purple);
-}
-
-@media screen and (max-width:768px) {
-  .article-sort-item:not(.year) {
-      width: 100%;
-  }
-
-  .article-sort-meta > .article-meta-wrap {
-      display: none;
-  }
-
-  .article-sort-item-title {
-      font-size: 16px;
-  }
-
-  .article-sort-item-img{
-      width:90px;
-  }
-}
-
-.article-sort-item {
-  margin: 0 0 0px 0px;
-}
-/******************************* 归档页 *******************************/
-
-
 /******************************* 文章卡片上的[最新]标签 *******************************/
 #recent-posts>.recent-post-item {
   position: relative;
@@ -620,7 +435,7 @@ a.banner-button {
 }
 
 /* 文章卡片的左上角分类小角标 */
-a.article-meta__categories {
+a.article-meta__categories:not(.not-homepage) {
   position: absolute;
   padding: 0px 6px;
   backdrop-filter: saturate(180%) blur(20px);
@@ -652,7 +467,7 @@ progress.card-progress {
 }
 
 /* 首页文章卡片的左上角分类角标的样式 */
-.article-meta__categories:hover {
+.article-meta__categories:not(.not-homepage):hover {
   background: rgba(35, 105, 255, 0.8);
 }
 

@@ -181,7 +181,7 @@
     border-radius: 8px;
     color: var(--font-color);
   }
-  .page #nav a:hover {
+  .page #nav a:hover, .post #nav a:hover {
     color: var(--anzhiyu-white) !important;
     background: var(--anzhiyu-main);
     transition: 0.3s;

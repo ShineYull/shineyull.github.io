@@ -43,20 +43,20 @@
 }
 
 .loading-img {
-  background: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/shineyu_avatar.png) no-repeat center center;
+  background: url(/img/shineyu_avatar.png) no-repeat center center;
   background-size: cover;
 }
 
 /* 鼠标图标 */
 body {
-  cursor: url("https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/x1.cur"), auto;
+  cursor: url("/img/x1.cur"), auto;
 }
 a,
 [type="button"]:not(:disabled),
 [type="reset"]:not(:disabled),
 [type="submit"]:not(:disabled),
 button:not(:disabled) {
-  cursor: url("https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/x2.cur"), auto !important;
+  cursor: url("/img/x2.cur"), auto !important;
 }
 
 /* 阿里图标 */
@@ -122,7 +122,7 @@ svg.icon {
 /* 网站背景颜色 */
 #web_bg {
   background-size: 20rem;
-  background-image: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/bg.svg) !important;
+  background-image: url(/img/bg.svg) !important;
   background-repeat: initial;
 }
 
@@ -366,7 +366,7 @@ a.banner-button {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/gongzonghao_zheng.png) center center no-repeat;
+  background: url(/img/gongzonghao_zheng.png) center center no-repeat;
   background-size: 100%;
 }
 
@@ -375,7 +375,7 @@ a.banner-button {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   box-sizing: border-box;
-  background: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/gongzonghao_fan.png) center center no-repeat;
+  background: url(/img/gongzonghao_fan.png) center center no-repeat;
   background-size: 100%;
 }
 #flip-wrapper:hover #flip-content {

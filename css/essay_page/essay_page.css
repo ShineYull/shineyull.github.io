@@ -143,7 +143,7 @@
   }
   
   #bber .bber-bottom .bber-reply {
-    cursor: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/x2.cur), auto !important;
+    cursor: url(/img/x2.cur), auto !important;
   }
   
   #bber .timeline ul li.bber-item:hover {
@@ -233,7 +233,7 @@
   /* 顶部样式 */
   .author-content.author-content-item.essayPage {
     height: 19rem;
-    background: url(https://cdn.jsdelivr.net/gh/ShineYull/cdn_jsdelivr@0.0.4/img/xision_duolong.jpg) left 28% / cover no-repeat;
+    background: url(/img/xision_duolong.jpg) left 28% / cover no-repeat;
     color: var(--anzhiyu-white);
     overflow: hidden;
     margin-top: 0px;

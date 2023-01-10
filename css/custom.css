@@ -661,13 +661,6 @@ div#author-info__sayhi {
 }
 /************************************************* 个人资料卡片 *************************************************/
 
-/* 手机端侧边常驻固定浮窗小头像组件 */
-@media screen and (max-width: 768px) {
-  #card-newest-comments {
-      max-height: 600px !important;
-  }
-}
-
 /* 音乐播放器的样式 */
 body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.aplayer-fixed.aplayer-narrow > div.aplayer-body {
   left: -66px;

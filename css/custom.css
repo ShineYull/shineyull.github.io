@@ -667,3 +667,8 @@ div#author-info__sayhi {
       max-height: 600px !important;
   }
 }
+
+/* 音乐播放器的样式 */
+body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.aplayer-fixed.aplayer-narrow > div.aplayer-body {
+  left: -66px;
+}

@@ -73,9 +73,18 @@ svg.icon {
   max-width: 1450px;
 }
 
+#recent-posts {
+  margin-top: unset !important;
+}
+
 /* 主页中间布局宽度修改 */
 .layout > div:first-child{
   width:100%  /* 当分类条超过宽度时，改为80% */
+}
+
+/* 首页文章整体布局 */
+.layout {
+  padding: 20px 15px;
 }
 
 /* 中间文章布局 */

@@ -8,7 +8,8 @@
 
 .article-sort-title {
   margin-top: 30px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  padding-bottom: unset !important;
 }
 
 .article-sort-item::before,
@@ -19,9 +20,13 @@
 
 .article-sort .year {
   width: 100% !important;
-  border-bottom: dashed 5px #84e4ff;
+  /* border-bottom: dashed 5px #84e4ff; */
   font-size: 26px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  background-color: #3b70fc;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #fff;
 }
 
 .article-sort {
@@ -178,4 +183,14 @@
   .article-sort-item-img {
     width: 90px;
   }
+}
+
+.article-sort-item-index {
+  opacity: .2;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-style: italic;
+  font-size: 2.5rem;
+  line-height: 1.5rem;
 }

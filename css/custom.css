@@ -68,13 +68,6 @@ svg.icon {
   overflow: hidden;
 }
 
-/* 分类条 */
-#category-bar {
-  width: 100%;
-  margin-bottom: unset !important;
-  border-radius: 30px;
-}
-
 /* 中间文章卡片的布局宽度大小 */
 .page .layout, .post .layout {
   max-width: 1450px;
@@ -299,20 +292,6 @@ a.banner-button {
   margin-bottom: unset;
 }
 
-/* 手机端分类栏样式 */
-@media screen and (max-width: 768px){
-  #category-bar {
-    background: var(--anzhiyu-background);
-    position: sticky;
-    top: 57px;
-    z-index: 2;
-    align-items: center;
-    margin: 0 auto 0;
-    border: none;
-    border-radius: 0px;
-  }
-}
-
 /* 手机端文章卡片的边框阴影 */
 @media screen and (max-width: 768px){
   #aside-content .card-widget, #recent-posts>.recent-post-item, .cardHover, .error404 #error-wrap .error-content, .layout>.recent-posts .pagination>:not(.space), .layout>div:first-child:not(.recent-posts) {
@@ -471,11 +450,6 @@ progress.card-progress {
   background: rgba(35, 105, 255, 0.8);
 }
 
-/* 分类标题样式 */
-.category-in-bar-tips{
-  display: none;
-}
-
 /********** 文章a标签 **********/
 #post #article-container a:not([class]) {
   text-decoration: none;
@@ -493,25 +467,6 @@ progress.card-progress {
   border-radius: 8px
 }
 /********** 文章a标签 **********/
-
-/********** 分类条文字样式 **********/
-.category-bar-more {
-  color: var(--font-color);
-}
-
-.category-bar-item a {
-  color: var(--font-color);
-  padding: 8px 18px;
-}
-
-.category-bar-item:hover a{
-  border-radius: 20px;
-}
-
-.category-bar-item.select a {
-  border-radius: 20px;
-}
-/********** 分类条文字样式 **********/
 
 /* 最新评论中的头像样式 */
 #aside-content .aside-list > .aside-list-item .thumbnail {

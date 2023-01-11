@@ -10,7 +10,9 @@ function catalogActive () {
     }, false)
 
     // 高亮当前页面对应的分类或标签
-    let $catalog = document.getElementById(decodeURIComponent(window.location.pathname))
+    console.log("[Shine] window.location.pathname:", window.location.pathname);
+    var urlinfo = decodeURIComponent(window.location.pathname);  //当前页面路径
+    let $catalog = document.getElementById(urlinfo)
     $catalog.classList.add('selected')
 
     // 滚动当前页面对应的分类或标签到中部

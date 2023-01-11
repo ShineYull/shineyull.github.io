@@ -4,12 +4,15 @@
   border-radius: .5rem;
   display: flex;
   border: 1px solid rgba(150,150,150,0.2);
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   justify-content: space-between;
+  width: 100%;
+  background-color: var(--card-bg);
 }
 
 #catalog-bar:hover {
-  border-color: #1677B3;
+  border: var(--style-border-hover);
+  box-shadow: var(--anzhiyu-shadow-main);
 }
 
 #catalog-bar i {
@@ -43,12 +46,12 @@
 }
 
 .catalog-list-item:hover a {
-  background: #1677B3;
+  background: #3b70fc;
   color: #fff;
 }
 
 .catalog-list-item.selected a {
-  background: #ff7242;
+  background: #3b70fc;
   color: #fff;
 }
 
@@ -60,4 +63,16 @@ a.catalog-more {
 
 a.catalog-more:hover {
   color: #1677B3;
+}
+
+/* 手机端分类栏样式 */
+@media screen and (max-width: 768px){
+  #catalog-bar {
+    background: var(--anzhiyu-background);
+    position: sticky;
+    top: 57px;
+    z-index: 2;
+    border-radius: 0px;
+    border: unset !important;
+  }
 }

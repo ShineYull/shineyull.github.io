@@ -2,7 +2,7 @@
     background: var(--anzhiyu-white);
     color: var(--anzhiyu-fontcolor);
     padding: 0.5rem 1rem;
-    border-radius: 30px;
+    border-radius: 0.5rem;
     box-shadow: var(--anzhiyu-shadow-lightblack);
     display: flex;
     transition: all 0.3s ease 0s;
@@ -52,7 +52,10 @@
     transition: all 0.3s ease 0s;
     cursor: url(/img/x2.cur), auto !important;
   }
-  
+  #bbTimeList > svg {
+    margin-left: -0.5rem;
+  }
+
   .bber-gotobb {
     line-height: 25px;
     margin-left: 1rem;

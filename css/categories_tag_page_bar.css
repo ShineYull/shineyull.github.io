@@ -64,3 +64,12 @@ a.catalog-more {
 a.catalog-more:hover {
   color: #1677B3;
 }
+
+/* 手机端分类栏样式 */
+@media screen and (max-width: 768px){
+  #catalog-bar {
+    position: sticky;
+    top: 57px;
+    z-index: 2;
+  }
+}

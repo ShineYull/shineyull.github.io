@@ -76,6 +76,7 @@
     border-top-right-radius: unset;
     border: 1px solid rgba(150,150,150,0.2);
     justify-content: space-between;
+    box-shadow: 0 8px 16px -4px #2c2d3017;
   }
 }
 

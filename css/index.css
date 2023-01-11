@@ -6480,29 +6480,6 @@ blockquote.pullquote.right {
   overflow: hidden;
 }
 
-#page:has(#about-page) {
-  border: 0;
-  box-shadow: none !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-#page:has(#about-page) .page-title {
-  display: none;
-}
-
-.page:has(#about-page) #footer-wrap {
-  opacity: 1;
-  overflow: visible;
-  height: auto !important;
-  min-height: 16px;
-  color: #666;
-}
-
-#web_bg ~ .page:has(#about-page) {
-  background: none;
-}
-
 #about-page .author-box {
   position: relative;
 }

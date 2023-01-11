@@ -52,6 +52,7 @@
 .category-bar-item:hover a{
   background: var(--heo-main);
   color: var(--heo-white);
+  border-radius: 12px;
 }
 
 .category-bar-item.select a {
@@ -92,15 +93,7 @@
 
 .category-bar-item a {
   color: var(--font-color);
-  padding: 8px 18px;
-}
-
-.category-bar-item:hover a{
-  border-radius: 20px;
-}
-
-.category-bar-item.select a {
-  border-radius: 20px;
+  padding: 4px 18px;
 }
 /********** 分类条文字样式 **********/
 

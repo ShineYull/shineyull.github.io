@@ -21,6 +21,15 @@ function percent() {
   if (a === 0 && document.getElementById('page-header').classList.contains('nav-fixed')==true) {
     document.getElementById('page-header').classList.add('nav-visible')
   }
+
+  /* 处理导航栏颜色变换和透明度变换 */
+  const $header = document.getElementById('page-header')
+  const currentTop = window.scrollY || document.documentElement.scrollTop
+  if (currentTop > 56) {
+    $header.classList.add('is-top-bar')
+  }else if (currentTop === 0) {
+    $header.classList.remove('is-top-bar')
+  }
 }
 
 document.getElementById("page-name").innerText = document.title.split(" | Shine")[0];

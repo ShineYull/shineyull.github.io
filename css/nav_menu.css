@@ -629,9 +629,15 @@
 /**************** 禁止导航栏初始化时的一小段出场下滑动画 ****************/
 #page-header {
   animation: unset !important;
+  transition: unset !important;
+}
+
+#nav.show {
+  animation: unset !important;
 }
 
 #nav {
+  transition: unset !important;
   opacity: 1 !important;
 }
 /**************** 禁止导航栏初始化时的一小段出场下滑动画 ****************/

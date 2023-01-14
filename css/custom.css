@@ -75,11 +75,12 @@ svg.icon {
 
 #recent-posts {
   margin-top: unset !important;
+  align-items: flex-start;
 }
 
 /* 主页中间布局宽度修改 */
 .layout > div:first-child{
-  width:100%  /* 当分类条超过宽度时，改为80% */
+  width: 100%  /* 当分类条超过宽度时，改为calc(100% - 300px) */
 }
 
 /* 首页文章整体布局 */

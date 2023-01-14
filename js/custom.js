@@ -28,6 +28,20 @@ function essayScroll() {
 function replaceAll(e, n, t) {
   return e.split(n).join(t);
 }
+function anzhiyuScrollFn() {
+  var n = !1
+    , r = document.getElementById("waterfall")
+  window.anzhiyuScrollFnToDo = btf.throttle(function() {
+    r && (e = t % document.documentElement.clientHeight,
+    !n && 100 + e >= document.documentElement.clientHeight ? (console.info(e, document.documentElement.clientHeight),
+    setTimeout(function() {
+        waterfall("#waterfall")
+    }, 500)) : setTimeout(function() {
+        r && waterfall("#waterfall")
+    }, 500))
+  }, 48),
+  window.addEventListener("scroll", anzhiyuScrollFnToDo)
+}
 var anzhiyu = {
   diffDate: function (d, more = false) {
     const dateNow = new Date();
@@ -128,3 +142,4 @@ var anzhiyu = {
 anzhiyu.initIndexEssay();
 anzhiyu.changeTimeInEssay();
 anzhiyu.reflashEssayWaterFall();
+anzhiyuScrollFn();

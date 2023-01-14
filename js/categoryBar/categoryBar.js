@@ -5,7 +5,6 @@ topCategoriesBarScroll()
 function categoriesBarActive(){
   var urlinfo = window.location.pathname;
   urlinfo = decodeURIComponent(urlinfo)
-  console.log(urlinfo);
   //判断是否是首页
   if (urlinfo == '/'){
     if (document.querySelector('#category-bar')){

@@ -1,5 +1,5 @@
 #swiper_container_blog {
-    width: 50%;
+    width: 49%;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -431,62 +431,123 @@ div#swiper_container {
     height: 200px;
   }
 }
-/* 闅忔満鏂囩珷css */
-#random {
-  border-radius: 8px;
-  font-family: "ZhuZiAYuanJWD", PingFang, 寰蒋闆呴粦, HYTMR, SimSun;
-  background-size: cover;
-  color: var(--anzhiyu-white);
-  font-size: 44px; /*瑙夊緱灏忓彲浠ュ紑澶т竴鐐�*/
-  position: relative;
-  border-radius: 8px;
 
-  margin-bottom: 0.9rem;
+#random-banner {
+  font-size: 60px;
+  line-height: 1.8;
+  position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 76%;
   background: var(--anzhiyu-card-bg);
-  margin-bottom: 0.5rem;
+  background-size: cover;
+  margin-bottom: .5rem;
   border: var(--style-border);
   border-radius: 12px;
   overflow: hidden;
-  position: relative;
   box-shadow: var(--anzhiyu-shadow-border);
-  flex-direction: column;
-  overflow: hidden;
-  transition: 0.3s;
-  clip-path: inset(0 0 0 0 round 12px);
+  transition: .3s;
+  clip-path: inset(0 0 0 0 round 12px)
 }
-#random-banner {
-  height: 100% !important;
-  width: 100% !important;
-  border-radius: 8px;
-  display: flex;
-}
-#random-banner canvas {
-  width: 100%;
-}
+
 #random-hover {
+  position: absolute;
   opacity: 0;
   padding-left: 0rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100% !important;
+  height: 100%;
+  width: 100%;
   color: #0000;
   border-radius: 8px;
-  transition: cubic-bezier(0.71, 0.15, 0.16, 1.15) 0.6s;
+  transition: cubic-bezier(.71,.15,.16,1.15) .6s
 }
+
 #random-hover:hover {
   padding-left: 1rem;
   opacity: 1;
-  color: #ffffff;
+  color: #fff;
   background-color: #425aefdd;
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
-  transition: 0.3s;
+  transition: .3s;
   background-size: 200%;
-  cursor: pointer;
+  cursor: pointer
+}
+
+.banners-title {
+  top: 2.9rem;
+  left: 3rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column
+}
+
+.banners-title-big {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 8px
+}
+
+.banners-title-small {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--anzhiyu-secondtext);
+  margin-top: 8px;
+  margin-bottom: .5rem
+}
+
+#random-banner #skills-tags-group-all .tags-group-wrapper {
+  margin-top: 7rem
+}
+
+#random-banner #skills-tags-group-all {
+  transform: rotate(-30deg)
+}
+
+#skills-tags-group-all {
+  display: flex;
+  transform: rotate(0);
+  transition: .3s
+}
+
+#skills-tags-group-all .tags-group-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+  animation: rowup 60s linear infinite
+}
+
+#skills-tags-group-all .tags-group-icon-pair {
+  margin-left: 1rem
+}
+
+#skills-tags-group-all .tags-group-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 66px;
+  font-weight: 700;
+  box-shadow: var(--anzhiyu-shadow-blackdeep);
+  width: 120px;
+  height: 120px;
+  border-radius: 30px
+}
+
+#skills-tags-group-all .tags-group-icon img {
+  width: 60%;
+  margin: 0 auto!important
+}
+
+#skills-tags-group-all .tags-group-icon-pair .tags-group-icon:nth-child(even) {
+  margin-top: 1rem;
+  transform: translate(-60px)
+}
+
+#skills-tags-group-all .etc {
+  margin-right: 10px;
+  margin-top: 10px
 }
 
 @media screen and (max-width: 1050px) {
@@ -525,12 +586,12 @@ div#swiper_container {
 }
 
 div#bannerGroup {
-  width: calc(100% - 600px - 2rem);
-  margin-right: 0.5rem;
+  width: calc(51% - 10px);
+  margin-right: 10px;
   height: 338px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 .topGroup {

@@ -44,8 +44,12 @@ var shine = {
     sayhi: function() {
         var e = document.getElementById("author-info__sayhi");
         e && (e.innerHTML = shine.getTimeState() + "！我是")
+    },
+    logInfo: ()=>{
+        console.log(`Welcome to:\n%cShine blog:%c https://blog.shineyu.cn%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2022/12/01 00:00:00").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
     }
 }
 
 shine.randomLink();
 shine.sayhi();
+shine.logInfo();

@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  width: 60%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -109,11 +109,6 @@
   padding: 40px;
 }
 
-#console .console-card.tags {
-  height: calc(100% - 172px);
-}
-
-
 #console .console-mask {
   background: var(--heo-maskbgdeep);
   backdrop-filter: saturate(100%) blur(0px);
@@ -134,34 +129,6 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
-#card-newest-comments .aside-list-item .thumbnail img {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  border-radius: 20px;
-}
-
-#card-newest-comments .aside-list-item {
-  background: var(--heo-secondbg);
-  border-radius: 12px;
-  border: var(--style-border);
-  padding: 12px 16px;
-  width: 49%;
-  display: flex;
-  flex-direction: column;
-  height: 150px;
-}
-
-#card-newest-comments .aside-list-item:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
-#card-newest-comments .aside-list-item .name {
-  text-overflow:ellipsis;
-  overflow:hidden;
-  white-space:nowrap;
-}
-
 #console .author-content-item-tips {
   opacity: .8;
   font-size: .6rem;
@@ -172,42 +139,6 @@
   font-size: 36px;
   font-weight: 700;
   line-height: 1;
-}
-
-#console .aside-list-item .thumbnail {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
-
-#console .aside-list-item .content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-top: 0.5rem;
-}
-
-#console .aside-list-item .content .comment {
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  line-height: 24px;
-  width: fit-content;
-}
-
-#console .aside-list-item .content time {
-  font-size: 12px;
-  color: var(--heo-secondtext);
-  margin-top: auto;
-}
-
-#console .aside-list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 1.5rem;
 }
 
 #console .button-group {
@@ -347,4 +278,10 @@
 
 #console .button-group i {
   font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  #console-button {
+    display: none;
+  }
 }

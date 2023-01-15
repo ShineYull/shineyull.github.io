@@ -54,7 +54,39 @@ var shine = {
         document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
         // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
         window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
-    }
+    },
+    //显示中控台
+    showConsole: function() {
+        document.querySelector("#console").classList.add("show");
+        heo.initConsoleState();
+    },
+    //隐藏中控台
+    hideConsole: function() {
+        document.querySelector("#console").classList.remove("show");
+    },
+    //快捷键功能开关
+    keyboardToggle: function() {
+        if (heo_keyboard) {
+        heo_keyboard = false;
+        document.querySelector("#consoleKeyboard").classList.remove("on");
+        localStorage.setItem('keyboardToggle', 'false');
+        }else {
+        heo_keyboard = true;
+        document.querySelector("#consoleKeyboard").classList.add("on");
+        localStorage.setItem('keyboardToggle', 'true');
+        }
+    },
+    //隐藏侧边栏
+    hideAsideBtn: () => { // Hide aside
+        const $htmlDom = document.documentElement.classList
+        $htmlDom.contains('hide-aside')
+        ? saveToLocal.set('aside-status', 'show', 2)
+        : saveToLocal.set('aside-status', 'hide', 2)
+        $htmlDom.toggle('hide-aside')
+        $htmlDom.contains('hide-aside')
+        ? document.querySelector("#consoleHideAside").classList.add("on")
+        : document.querySelector("#consoleHideAside").classList.remove("on")
+    },
 }
 
 shine.randomLink();

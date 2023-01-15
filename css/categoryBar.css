@@ -9,6 +9,7 @@
   border: var(--style-border);
   width: 100%;
   box-shadow: 0 8px 16px -4px #2c2d300c;
+  align-items: center;
 }
 
 #category #category-bar{
@@ -78,6 +79,25 @@
     border: 1px solid rgba(150,150,150,0.2);
     justify-content: space-between;
     box-shadow: 0 8px 16px -4px #2c2d3017;
+    align-items: center;
+  }
+
+  .category-bar-more {
+    color: var(--font-color);
+    font-size: unset !important;
+  }
+
+  .category-bar-item a {
+    color: var(--font-color);
+    padding: 4px 18px;
+    font-size: unset !important;
+  }
+  /********** 分类条文字样式 **********/
+
+  #category-bar i {
+    line-height: inherit;
+    margin: 0 1rem 0px 8px;
+    font-size: unset !important;
   }
 }
 
@@ -89,17 +109,20 @@
 /********** 分类条文字样式 **********/
 .category-bar-more {
   color: var(--font-color);
+  font-size: 16px;
 }
 
 .category-bar-item a {
   color: var(--font-color);
   padding: 4px 18px;
+  font-size: 16px;
 }
 /********** 分类条文字样式 **********/
 
 #category-bar i {
   line-height: inherit;
   margin: 0 1rem 0px 8px;
+  font-size: 17px;
 }
 
 #category-bar:hover {

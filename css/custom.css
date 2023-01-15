@@ -823,3 +823,8 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
   }
 }
 /************************************************* 翻页 *************************************************/
+
+/* 右下角按钮 */
+#rightside {
+  display: none;
+}

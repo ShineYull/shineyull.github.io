@@ -47,6 +47,13 @@ var shine = {
     },
     logInfo: ()=>{
         console.log(`Welcome to:\n%cShine blog:%c https://blog.shineyu.cn%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2022/12/01 00:00:00").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
+    },
+    // 切换热评
+    switchCommentBarrage: function () {
+        let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
+        document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
+        // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
+        window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
     }
 }
 

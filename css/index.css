@@ -8018,30 +8018,6 @@ blockquote.pullquote.right {
 #bber .aplayer .aplayer-lrc p {
   color: var(--anzhiyu-fontcolor);
 }
-
-/* 评论 */
-.tk-expand,
-.tk-comments-container>.tk-comment,
-.tk-submit:nth-child(1){
-    background: var(--card-bg);
-    border: 1px solid #e0e3ed;
-    box-shadow: 0 5px 10px rgb(189 189 189 / 10%);
-    transition: all .3s ease-in-out;
-    border-radius: 12px;
-}
-
-.tk-comments-container>.tk-comment:hover,
-.tk-submit:nth-child(1):hover {
-    border-color: var(--style-border-hover);
-}
-
-.tk-submit {
-    padding: 20px 10px 0;
-}
-
-.tk-comments-container>.tk-comment {
-    padding: 15px;
-}
 #bbTimeList {
     background: var(--anzhiyu-white);
     color: var(--anzhiyu-fontcolor);

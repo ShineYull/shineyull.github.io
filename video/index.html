@@ -261,6 +261,64 @@ button.fullscreen_btn img {
   display: block;
   width: 30px;
   height: 30px;
+}
+
+#page {
+  border: 0;
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+#page .page-title {
+  display: none;
+}
+#page .author-content-item .card-content .banner-button-group .banner-button:hover {
+  color: var(--anzhiyu-white);
+  border-radius: 20px !important;
+}
+.videos {
+  padding: 20px 20px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e3ed;
+}
+.videos:hover {
+  border-color: var(--style-border-hover);
+}
+
+/* 评论 */
+.tk-expand,
+.tk-comments-container>.tk-comment,
+.tk-submit:nth-child(1){
+  background: var(--card-bg);
+  border: 1px solid #e0e3ed;
+  box-shadow: 0 5px 10px rgb(189 189 189 / 10%);
+  transition: all .3s ease-in-out;
+  border-radius: 12px;
+}
+
+.tk-comments-container>.tk-comment:hover,
+.tk-submit:nth-child(1):hover {
+  border-color: var(--style-border-hover);
+}
+
+.tk-submit {
+  padding: 20px 10px 0;
+}
+
+.tk-comments-container>.tk-comment {
+  padding: 15px;
+}
+
+.tk-comments-no {
+  background: var(--card-bg);
+  border: 1px solid #e0e3ed;
+  box-shadow: 0 5px 10px rgb(189 189 189 / 10%);
+  transition: all .3s ease-in-out;
+  border-radius: 12px;
+}
+.tk-comments-no:hover {
+  border-color: var(--style-border-hover);
 }</style><script src="/js/jquery_v3.6.3.min.js"></script>
 <script>
 function selectVideo(id){

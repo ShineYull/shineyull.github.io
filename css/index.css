@@ -7750,18 +7750,6 @@ blockquote.pullquote.right {
 .author-content-item.skills:hover .skills-style-group .skills-list {
   opacity: 1;
 }
-#page:has(#essay_page) {
-  border: 0;
-  box-shadow: none !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-#page:has(#essay_page) .page-title {
-  display: none;
-}
-/* #web_bg ~ .page:has(#essay_page) {
-  background: var(--anzhiyu-background);
-} */
 #bber .bber-container-img {
   display: flex;
   align-items: center;
@@ -7990,10 +7978,6 @@ blockquote.pullquote.right {
   overflow: hidden;
   margin-top: 0px;
   border-radius: 15px !important;
-}
-#page:has(#essay_page) .author-content-item .card-content .banner-button-group .banner-button:hover {
-  color: var(--anzhiyu-white);
-  border-radius: 20px !important;
 }
 
 /* 响应式 */

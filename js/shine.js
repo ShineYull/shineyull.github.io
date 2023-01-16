@@ -83,6 +83,49 @@ var shine = {
         ? document.querySelector("#consoleHideAside").classList.add("on")
         : document.querySelector("#consoleHideAside").classList.remove("on")
     },
+    //全屏
+    enterFullscreen: function(el) {
+        console.log("进入全屏的元素", el)
+        if (el.requestFullscreen) {
+            el.requestFullscreen();
+        } else if (el.msRequestFullscreen) {
+            el.msRequestFullscreen();
+        } else if (el.mozRequestFullScreen) {
+            el.mozRequestFullScreen();
+        } else if (el.webkitRequestFullscreen) {
+            el.webkitRequestFullscreen();
+        } else {
+            shine.noFullscreenSupport();
+        }
+
+        if (shine.is_mobile()) {
+            window.screen.orientation.lock("landscape-primary");
+        }
+    },
+    //退出全屏
+    exitFullscreen: function(fullscreenElement) {
+        console.log("全屏元素", fullscreenElement)
+        // var doc = getIframe();
+        let doc = window.top.document;
+        if (doc.exitFullscreen) {
+            doc.exitFullscreen();
+        } else if (doc.msExitFullscreen) {
+            doc.msExitFullscreen();
+        } else if (doc.mozCancelFullScreen) {
+            doc.mozCancelFullScreen();
+        } else if (doc.webkitExitFullscreen) {
+            doc.webkitExitFullscreen();
+        } else {
+            shine.noFullscreenSupport();
+        }
+    },
+    noFullscreenSupport: function() {
+        fullscreenState = !fullscreenState;
+        alert('您的浏览器不支持全屏.');
+    },
+    is_mobile: function() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    },
 }
 
 shine.randomLink();

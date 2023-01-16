@@ -7854,6 +7854,8 @@ blockquote.pullquote.right {
 #bber .bber-info {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 #bber > section > ul > li > div .bber-info-time,
@@ -7866,6 +7868,8 @@ blockquote.pullquote.right {
   cursor: default;
   display: flex;
   align-items: center;
+  margin-right: 4px;
+  margin-top: 4px;
 }
 
 #bber .bber-info .far.fa-clock {
@@ -7873,7 +7877,7 @@ blockquote.pullquote.right {
 }
 #bber > section > ul > li > div .bber-info-from span,
 #bber > section > ul > li > div .bber-info-from {
-  margin-left: 4px;
+  margin-right: 4px;
 }
 
 #bber .bber-bottom {
@@ -7892,13 +7896,14 @@ blockquote.pullquote.right {
 
 #bber .bber-content-link {
   display: flex;
-  margin-left: 0.5rem;
+  margin-right: 4px;
   font-size: 0.7rem;
   align-items: center;
   background-color: rgba(245, 108, 108, 0.13);
   color: rgb(245, 108, 108);
   padding: 0px 8px;
   border-radius: 20px;
+  margin-top: 4px;
 }
 #bber .bber-content-link i {
   margin-right: 3px;

@@ -7775,6 +7775,7 @@ blockquote.pullquote.right {
   display: flex;
   position: relative;
   width: calc(100% / 4 - 5px);
+  margin-top: 10px;
 }
 
 #bber .bber-content .datacont {

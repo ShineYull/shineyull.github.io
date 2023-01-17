@@ -7774,7 +7774,6 @@ blockquote.pullquote.right {
   overflow: hidden;
   display: flex;
   position: relative;
-  width: calc(100% / 4 - 5px);
   margin-top: 10px;
 }
 

@@ -33,6 +33,10 @@ div#swiper_container {
   border-radius: 12px;
   border: var(--style-border);
 }
+div#swiper_container:hover {
+  border: 1px solid #3b70fc;
+  box-shadow: 0 8px 12px -3px #4259ef23;
+}
 .blog-slider {
   width: 100%;
   position: relative;

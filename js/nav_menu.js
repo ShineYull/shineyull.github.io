@@ -1,5 +1,7 @@
 // 返回顶部 显示网页阅读进度
 window.onscroll = percent; // 执行函数
+percent(); //修复刷新页面时，导航栏class名不正确的情况。
+
 // 页面百分比
 function percent() {
   let a = document.documentElement.scrollTop || window.pageYOffset, // 卷去高度

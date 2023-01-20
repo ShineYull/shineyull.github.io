@@ -828,3 +828,120 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
 #rightside {
   display: none;
 }
+
+.flink-card {
+  position: relative;
+  padding: 20px;
+  border: var(--card-border);
+  background-image: url(/images/user/flink_card.png);
+  background-size: cover;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+  -ms-box-shadow: var(--box-shadow);
+  -o-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow)
+}
+
+.flink-card-title {
+  font-size: 2rem;
+  font-weight: 700
+}
+
+.flink-card-desc {
+  font-size: 80%;
+  opacity: .8
+}
+
+.flink-card-btn-group {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex
+}
+
+.flink-card-btn {
+  height: 3em;
+  padding: .5em .8em;
+  margin-left: 1.5rem;
+  border-radius: 5rem;
+  background: var(--font-color);
+  background: rgba(125,125,125,.2);
+  backdrop-filter: var(--backdrop-filter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out
+}
+
+.flink-card-btn * {
+  color: var(--global-bg);
+  margin: .2em
+}
+
+.flink-card-btn:hover {
+  background: var(--main);
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+  -ms-box-shadow: var(--box-shadow);
+  -o-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow)
+}
+
+.flink-card-btn:hover * {
+  color: var(--second)
+}
+
+.flink-card-container {
+  overflow: hidden;
+  display: flex
+}
+
+.flink-card-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: rowup 60s linear infinite;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.flink-icon-pair {
+  margin-left: 1rem
+}
+
+.flink-icon-pair .flink-icon:nth-child(even) {
+  -webkit-transform: translate(-60px);
+  -moz-transform: translate(-60px);
+  -ms-transform: translate(-60px);
+  -o-transform: translate(-60px);
+  transform: translate(-60px)
+}
+
+.flink-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: .5rem 0;
+  -webkit-box-shadow: var(--box-shadow);
+  -moz-box-shadow: var(--box-shadow);
+  -ms-box-shadow: var(--box-shadow);
+  -o-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow)
+}
+
+.flink-icon img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%!important;
+  margin: auto!important
+}

@@ -84,29 +84,29 @@ function fetchShow(t) {
     ))
 }
 function initFriendCircle(t) {
-    let e = document.getElementById("fc-container");
-    e || (e = document.createElement("div"),
-    e.id = "fc-container",
-    document.getElementById("article-container").appendChild(e)),
-    e.classList.add("article-sort"),
-    e.classList.add("fc-article-sort"),
-    e.insertAdjacentHTML("afterend", '<div id="fc-more" class="article-sort-item fc-article-sort-item" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>'),
+    // let e = document.getElementById("fc-container");
+    // e || (e = document.createElement("div"),
+    // e.id = "fc-container",
+    // document.getElementById("article-container").appendChild(e)),
+    // e.classList.add("article-sort"),
+    // e.classList.add("fc-article-sort"),
+    // e.insertAdjacentHTML("afterend", '<div id="fc-more" class="article-sort-item fc-article-sort-item" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>'),
     document.body.insertAdjacentHTML("afterend", '<div id="fc-overlay" onclick="closeShow()"></div>\n      <div id="fc-overshow-parent"><div id="fc-overshow"></div></div>');
-    let a = JSON.parse(localStorage.getItem("fc_statistical"))
-      , i = JSON.parse(localStorage.getItem("fc_article"));
-    if (a && i) {
-        loadArticleItem(i, 0, fdata.init, a.article_num);
-        let n = fdata.api + "all?rule=" + t + "&start=0&end=" + fdata.init;
-        fetch(n).then((t=>t.json())).then((t=>{
-            let n = t.statistical_data
-              , l = t.article_data;
-            a.article_num === n.article_num && i[0].title === l[0].title || (e.innerHTML = "",
-            localStorage.setItem("fc_statistical", JSON.stringify(n)),
-            localStorage.setItem("fc_article", JSON.stringify(l)),
-            loadArticleItem(l, 0, fdata.init, n.article_num))
-        }
-        ))
-    } else
-        fetchFriendCircle(fdata.sort)
+    // let a = JSON.parse(localStorage.getItem("fc_statistical"))
+    //   , i = JSON.parse(localStorage.getItem("fc_article"));
+    // if (a && i) {
+    //     loadArticleItem(i, 0, fdata.init, a.article_num);
+    //     let n = fdata.api + "all?rule=" + t + "&start=0&end=" + fdata.init;
+    //     fetch(n).then((t=>t.json())).then((t=>{
+    //         let n = t.statistical_data
+    //           , l = t.article_data;
+    //         a.article_num === n.article_num && i[0].title === l[0].title || (e.innerHTML = "",
+    //         localStorage.setItem("fc_statistical", JSON.stringify(n)),
+    //         localStorage.setItem("fc_article", JSON.stringify(l)),
+    //         loadArticleItem(l, 0, fdata.init, n.article_num))
+    //     }
+    //     ))
+    // } else
+    //     fetchFriendCircle(fdata.sort)
 }
 initFriendCircle(fdata.sort);

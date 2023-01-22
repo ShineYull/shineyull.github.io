@@ -832,7 +832,7 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
 /************************************************* 友情链接页面的样式 *************************************************/
 .flink-card {
   position: relative;
-  padding: 0px 0px 20px 0px;
+  padding: 0px 0px 80px 0px;
   border: var(--card-border);
   /* background-image: url(/images/user/flink_card.png); */
   background-size: cover;

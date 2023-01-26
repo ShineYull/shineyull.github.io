@@ -109,6 +109,7 @@
   opacity: 0;
   overflow: hidden;
   transition: 0.5s;
+  color: #fff;
 }
 
 .article-sort-description {

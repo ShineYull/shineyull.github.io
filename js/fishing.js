@@ -54,7 +54,7 @@ function fetchRandomPost(){
             document.getElementById("random-post").innerHTML = "因为只钓鱼不吃鱼，过分饥饿导致本次钓鱼失败..."
             randomPostWorking = false;
         }else{
-            var fetchUrl = fdata.apiurl + 'randompost';
+            var fetchUrl = "https://hexo-circle-of-friends.shineyu.cn/randompost";
             fetch(fetchUrl)
             .then(res => res.json())
             .then(json =>{

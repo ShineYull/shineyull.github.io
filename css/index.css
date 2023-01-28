@@ -4386,6 +4386,7 @@ h1.page-title + .tag-cloud-list {
   position: relative;
   display: inline-block;
   overflow: hidden;
+  border-radius: 20px;
   margin: 3px;
   width: calc(33.333% - 6px);
   height: 200px;

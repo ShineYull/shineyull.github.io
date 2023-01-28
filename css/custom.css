@@ -80,7 +80,7 @@ svg.icon {
 
 /* 主页中间布局宽度修改 */
 .layout > div:first-child{
-  width: 100%  /* 当分类条超过宽度时，改为calc(100% - 300px) */
+  width: calc(100% - 300px);
 }
 
 /* 首页文章整体布局 */
@@ -1061,3 +1061,15 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
   }
 }
 /************************************************* 友情链接页面的样式 *************************************************/
+
+/* 归档、分类、标签页的点号样式 */
+#tag > div.article-sort > div.article-sort-item:not(.year) > div > div.article-sort-meta > div.article-meta-wrap > span.article-sort-item-tags > span,
+#archive > div.article-sort > div.article-sort-item:not(.year) > div > div.article-sort-meta > div.article-meta-wrap > span.article-sort-item-tags > span,
+#category > div.article-sort > div.article-sort-item:not(.year) > div > div.article-sort-meta > div.article-meta-wrap > span.article-sort-item-tags > span {
+  margin: 0 4px;
+}
+
+/* 文章页的标题向上缩进 */
+#post {
+  padding: 0px 40px 50px;
+}

@@ -2823,7 +2823,7 @@ h1.page-title + .tag-cloud-list {
   text-align: left;
 }
 #aside-content {
-  width: 26%;
+  width: 300px;
 }
 @media screen and (min-width: 900px) {
   #aside-content {

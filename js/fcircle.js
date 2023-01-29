@@ -5,14 +5,14 @@ var fdata = {
     sort: "created",
     avatar: "https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/loading.gif"
 };
-function loadArticleItem(t, e, a, i) {
+function loadArticleItem_fcircle(t, e, a, i) {
     let n = "";
     for (let l = e; l < Math.min(a, i); l++) {
         let e = t[l];
         n += `\n      <div class="article-sort-item fc-article-sort-item">\n        <a class="article-sort-item-img" onclick="openMeShow(event)" title="${e.author}" data-link="${e.link}" target="_blank" rel="noopener nofollow" href="javascript:;"> \n          <img src="${e.avatar}" alt="${e.title}" onerror="this.onerror=null;this.src='${fdata.avatar}';">\n        </a>\n        <div class="article-sort-item-info no-lightbox flink-item-icon">\n          <a class="article-sort-item-title" href="${e.link}" target="_blank" rel="noopener nofollow" title="${e.title}">${e.title}</a>\n          <span class="article-sort-item-index">${e.floor}</span>\n          <div class="article-meta-wrap">\n            <i class="far fa-user"></i>\n            <span class="fc-article-author">${e.author}</span>\n            <div class="article-sort-item-time">\n              <span class="fc-time-created" style="${"created" == fdata.sort ? "" : "display:none"}"><i class="far fa-calendar-alt"></i> ${e.created} </span>\n              <span class="fc-time-updated" style="${"updated" == fdata.sort ? "" : "display:none"}"><i class="fas fa-history"></i> ${e.updated} </span>\n            </div>\n          </div>\n        </div>\n      </div>\n      `
     }
     document.getElementById("fc-container").insertAdjacentHTML("beforeend", n),
-    fetchNextArticle()
+    fetchNextArticle_fcircle()
 }
 function loadFcircleShow_fcircle(t, e) {
     let a = '<div class="fc-overshow" style="display: flex; align-items: center; justify-content: center;">暂无数据</div>';
@@ -27,7 +27,7 @@ function loadFcircleShow_fcircle(t, e) {
     document.getElementById("fc-overshow").insertAdjacentHTML("beforeend", a),
     document.getElementById("fc-overshow").classList.add("fc-show-now")
 }
-function fetchNextArticle() {
+function fetchNextArticle_fcircle() {
     let t = document.getElementById("fc-container").getElementsByClassName("article-sort-item").length
       , e = JSON.parse(localStorage.getItem("fc_statistical")).article_num
       , a = Math.min(t + fdata.step, e);
@@ -49,16 +49,16 @@ function loadNextArticle_fcircle() {
         e += `\n    <div class="article-sort-item fc-article-sort-item">\n      <a class="article-sort-item-img" onclick="openMeShow(event)" title="${i.author}" data-link="${i.link}" target="_blank" rel="noopener nofollow" href="javascript:;"> \n        <img src="${i.avatar}" alt="${i.title}" onerror="this.onerror=null;this.src='${fdata.avatar}';">\n      </a>\n      <div class="article-sort-item-info no-lightbox flink-item-icon">\n        <a class="article-sort-item-title" href="${i.link}" target="_blank" rel="noopener nofollow" title="${i.title}">${i.title}</a>\n        <span class="article-sort-item-index">${i.floor}</span>\n        <div class="article-meta-wrap">\n          <i class="far fa-user"></i>\n          <span class="fc-article-author">${i.author}</span>\n          <div class="article-sort-item-time">\n            <span class="fc-time-created" style="${"created" == fdata.sort ? "" : "display:none"}"><i class="far fa-calendar-alt"></i> ${i.created} </span>\n            <span class="fc-time-updated" style="${"updated" == fdata.sort ? "" : "display:none"}"><i class="fas fa-history"></i> ${i.updated} </span>\n          </div>\n        </div>\n      </div>\n    </div>\n    `
     }
     document.getElementById("fc-container").insertAdjacentHTML("beforeend", e),
-    fetchNextArticle()
+    fetchNextArticle_fcircle()
 }
-function fetchFriendCircle(t) {
+function fetchFriendCircle_fcircle(t) {
     let e = fdata.api + "all?rule=" + t + "&start=0&end=" + fdata.init;
     fetch(e).then((t=>t.json())).then((t=>{
         let e = t.statistical_data
           , a = t.article_data;
         localStorage.setItem("fc_statistical", JSON.stringify(e)),
         localStorage.setItem("fc_article", JSON.stringify(a)),
-        loadArticleItem(a, 0, fdata.init, e.article_num)
+        loadArticleItem_fcircle(a, 0, fdata.init, e.article_num)
     }
     ))
 }
@@ -83,7 +83,7 @@ function fetchShow(t) {
     }
     ))
 }
-function initFriendCircle(t) {
+function initFriendCircle_fcircle(t) {
     // let e = document.getElementById("fc-container");
     // e || (e = document.createElement("div"),
     // e.id = "fc-container",
@@ -95,7 +95,7 @@ function initFriendCircle(t) {
     // let a = JSON.parse(localStorage.getItem("fc_statistical"))
     //   , i = JSON.parse(localStorage.getItem("fc_article"));
     // if (a && i) {
-    //     loadArticleItem(i, 0, fdata.init, a.article_num);
+    //     loadArticleItem_fcircle(i, 0, fdata.init, a.article_num);
     //     let n = fdata.api + "all?rule=" + t + "&start=0&end=" + fdata.init;
     //     fetch(n).then((t=>t.json())).then((t=>{
     //         let n = t.statistical_data
@@ -103,10 +103,10 @@ function initFriendCircle(t) {
     //         a.article_num === n.article_num && i[0].title === l[0].title || (e.innerHTML = "",
     //         localStorage.setItem("fc_statistical", JSON.stringify(n)),
     //         localStorage.setItem("fc_article", JSON.stringify(l)),
-    //         loadArticleItem(l, 0, fdata.init, n.article_num))
+    //         loadArticleItem_fcircle(l, 0, fdata.init, n.article_num))
     //     }
     //     ))
     // } else
-    //     fetchFriendCircle(fdata.sort)
+    //     fetchFriendCircle_fcircle(fdata.sort)
 }
-initFriendCircle(fdata.sort);
+initFriendCircle_fcircle(fdata.sort);

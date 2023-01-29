@@ -1073,3 +1073,13 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
 #post {
   padding: 0px 40px 50px;
 }
+
+/* 文章页中的内容的边距 */
+@media screen and (max-width: 768px) {
+  .post #content-inner {
+    padding: 20px 5px;
+  }
+  .post #post {
+    padding: 0rem 1rem 1rem;
+  }
+}

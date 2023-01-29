@@ -6564,7 +6564,7 @@ blockquote.pullquote.right {
 }
 
 .author-content-item.map {
-  background: url(/img/dt.png) no-repeat center;
+  background: url(/img/dt.webp) no-repeat center;
   min-height: 160px;
   max-height: 400px;
   position: relative;
@@ -6913,7 +6913,7 @@ blockquote.pullquote.right {
 
 .author-content-item.comic-content {
   width: 39%;
-  background: url(/img/afanda.png) no-repeat top;
+  background: url(/img/afanda.webp) no-repeat top;
   background-size: cover;
   min-height: 300px;
   overflow: hidden;
@@ -6937,7 +6937,7 @@ blockquote.pullquote.right {
 }
 
 .author-content-item.like-music {
-  background: url(/img/yinyue.jpg) no-repeat top;
+  background: url(/img/yinyue.webp) no-repeat top;
   background-size: cover;
   min-height: 400px;
   color: var(--anzhiyu-white);
@@ -7758,7 +7758,7 @@ blockquote.pullquote.right {
 /* 顶部样式 */
 .author-content.author-content-item.essayPage {
   height: 19rem;
-  background: url(/img/xision_duolong.jpg) left 28% / cover no-repeat;
+  background: url(/img/xision_duolong.webp) left 28% / cover no-repeat;
   color: var(--anzhiyu-white);
   overflow: hidden;
   margin-top: 0px;

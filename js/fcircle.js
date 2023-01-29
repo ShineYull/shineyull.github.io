@@ -14,7 +14,7 @@ function loadArticleItem(t, e, a, i) {
     document.getElementById("fc-container").insertAdjacentHTML("beforeend", n),
     fetchNextArticle()
 }
-function loadFcircleShow(t, e) {
+function loadFcircleShow_fcircle(t, e) {
     let a = '<div class="fc-overshow" style="display: flex; align-items: center; justify-content: center;">暂无数据</div>';
     if (t && e) {
         a = `\n      <div class="fc-overshow">\n        <div class="fc-overshow-head avatar-img">\n          <a class="" target="_blank" rel="noopener nofollow" href="${t.link}"><img src="${t.avatar}" alt="avatar" onerror="this.src='${fdata.avatar}'; this.onerror = null;"></a>\n        </div>\n        <div>\n          <i class="far fa-user"></i>\n          <span class="fc-article-author">${t.name}</span>\n        </div>\n        <div class="fc-overshow-content">`;
@@ -79,7 +79,7 @@ function fetchShow(t) {
     document.getElementById("fc-overlay").classList.add("fc-show-now"),
     document.getElementById("fc-overshow").insertAdjacentHTML("afterbegin", '<div class="fc-overshow-close" onclick="closeShow()"></div>'),
     fetch(t).then((t=>t.json())).then((t=>{
-        loadFcircleShow(t.statistical_data, t.article_data)
+        loadFcircleShow_fcircle(t.statistical_data, t.article_data)
     }
     ))
 }

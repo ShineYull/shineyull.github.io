@@ -1087,11 +1087,11 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
 /* fps */
 #fps{
   position: fixed;
-  right:10px;
-  bottom:4px;
+  left: 255px;
+  top: 15px;
   z-index: 1919810;
   text-align: left;
-  background: var(--anzhiyu-white-op);
+  background: rgba(255, 255, 255, 1);
   color: var(--font-color);
   border: 1px solid #e3e8f7;
   font-size: 12px;

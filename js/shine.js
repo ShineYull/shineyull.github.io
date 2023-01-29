@@ -83,8 +83,10 @@ var shine = {
         ? document.querySelector("#consoleHideAside").classList.add("on")
         : document.querySelector("#consoleHideAside").classList.remove("on")
 
-        /*初始化热评按钮状态*/
+        /* 初始化热评按钮状态 */
         shine.initSwitchCommentBarrage();
+        /* 初始化帧率显示按钮 */
+        shine.initFPSBtn();
     },
     //全屏
     enterFullscreen: function(el) {
@@ -172,6 +174,30 @@ var shine = {
             $("#comment-barrage").hide();
             $(".menu-commentBarrage-text").text("显示热评");
             document.querySelector("#consoleCommentBarrage").classList.remove("on");
+        }
+    },
+    //显示帧率
+    FPSToggle: function() {
+        if (localStorage.getItem('showFPS') == 'true') {
+            $("#fps").hide();
+            document.querySelector("#consoleFPS").classList.remove("on");
+            localStorage.setItem('showFPS', 'false');
+        }else {
+            $("#fps").show();
+            document.querySelector("#consoleFPS").classList.add("on");
+            localStorage.setItem('showFPS', 'true');
+        }
+    },
+    //初始化控制面板的帧率显示按钮
+    initFPSBtn: function() {
+        if (localStorage.getItem('showFPS') == null) {
+            $("#fps").hide();
+            document.querySelector("#consoleFPS").classList.remove("on");
+            localStorage.setItem('showFPS', 'false');
+        }else if (localStorage.getItem('showFPS') == 'true') {
+            document.querySelector("#consoleFPS").classList.add("on");
+        }else if (localStorage.getItem('showFPS') == 'false') {
+            document.querySelector("#consoleFPS").classList.remove("on");
         }
     }
 }

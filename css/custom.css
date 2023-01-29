@@ -1083,3 +1083,22 @@ body > div:nth-child(12) > div.aplayer.no-destroy.no-reload.aplayer-withlist.apl
     padding: 0rem 1rem 1rem;
   }
 }
+
+/* fps */
+#fps{
+  position: fixed;
+  right:10px;
+  bottom:4px;
+  z-index: 1919810;
+  text-align: left;
+  background: var(--anzhiyu-white-op);
+  color: var(--font-color);
+  border: 1px solid #e3e8f7;
+  font-size: 12px;
+  margin-right: auto;
+  padding: 0px 8px;
+  border-radius: 12px;
+  width: fit-content;
+  display: inline;
+  margin-left: -1px;
+}

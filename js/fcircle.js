@@ -41,7 +41,7 @@ function fetchNextArticle() {
     } else
         (t = e) && (document.getElementById("fc-more").outerHTML = '<div id="fc-more" class="article-sort-item"><small>一切皆有尽头！</small></div>')
 }
-function loadNextArticle() {
+function loadNextArticle_fcircle() {
     let t = JSON.parse(localStorage.getItem("fc_nextArticle"))
       , e = "";
     for (let a = 0; a < t.length; a++) {
@@ -90,7 +90,7 @@ function initFriendCircle(t) {
     // document.getElementById("article-container").appendChild(e)),
     // e.classList.add("article-sort"),
     // e.classList.add("fc-article-sort"),
-    // e.insertAdjacentHTML("afterend", '<div id="fc-more" class="article-sort-item fc-article-sort-item" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>'),
+    // e.insertAdjacentHTML("afterend", '<div id="fc-more" class="article-sort-item fc-article-sort-item" onclick="loadNextArticle_fcircle()"><i class="fas fa-angle-double-down"></i></div>'),
     document.body.insertAdjacentHTML("afterend", '<div id="fc-overlay" onclick="closeShow()"></div>\n      <div id="fc-overshow-parent"><div id="fc-overshow"></div></div>');
     // let a = JSON.parse(localStorage.getItem("fc_statistical"))
     //   , i = JSON.parse(localStorage.getItem("fc_article"));

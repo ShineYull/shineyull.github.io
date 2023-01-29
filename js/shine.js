@@ -82,6 +82,9 @@ var shine = {
         $htmlDom.contains('hide-aside')
         ? document.querySelector("#consoleHideAside").classList.add("on")
         : document.querySelector("#consoleHideAside").classList.remove("on")
+
+        /*初始化热评按钮状态*/
+        shine.initSwitchCommentBarrage();
     },
     //全屏
     enterFullscreen: function(el) {
@@ -141,6 +144,36 @@ var shine = {
         input.focus();
         input.setSelectionRange(-1, -1);
     },
+    //控制评论弹幕
+    switchCommentBarrage: function() {
+        let commentBarrage = document.querySelector('#comment-barrage');
+        if(commentBarrage){
+            if($("#comment-barrage").is(":visible")) {
+                $("#comment-barrage").hide();
+                $(".menu-commentBarrage-text").text("显示热评");
+                document.querySelector("#consoleCommentBarrage").classList.remove("on");
+                localStorage.setItem('commentBarrageSwitch', 'false');
+            }else if ($("#comment-barrage").is(":hidden")) {
+                $("#comment-barrage").show();
+                $(".menu-commentBarrage-text").text("关闭热评");
+                document.querySelector("#consoleCommentBarrage").classList.add("on");
+                localStorage.removeItem('commentBarrageSwitch');
+            }
+        }
+    },
+    //初始化控制评论弹幕开关颜色
+    initSwitchCommentBarrage: function() {
+        if(localStorage.getItem('commentBarrageSwitch') == null){
+            $("#comment-barrage").show();
+            $(".menu-commentBarrage-text").text("关闭热评");
+            document.querySelector("#consoleCommentBarrage").classList.add("on");
+            localStorage.removeItem('commentBarrageSwitch');
+        }else if (localStorage.getItem('commentBarrageSwitch') == 'false') {
+            $("#comment-barrage").hide();
+            $(".menu-commentBarrage-text").text("显示热评");
+            document.querySelector("#consoleCommentBarrage").classList.remove("on");
+        }
+    }
 }
 
 shine.randomLink();

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>C语言sizeof函数之平常所忽略的细节</title>
+      <link href="/c-sizeof.html"/>
+      <url>/c-sizeof.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文章不从头说起sizeof，只讨论sizeof的一些细节问题。</p><h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>是关于sizeof的，题目如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">3</span>；</span><br><span class="line"><span class="type">int</span> b；</span><br><span class="line">b = <span class="keyword">sizeof</span>（++a + ++a）；</span><br><span class="line"><span class="built_in">printf</span>（“%d， %d”， a， b）；</span><br></pre></td></tr></table></figure><blockquote><p>（对于64或32位机）答案：3， 4</p></blockquote><p>为什么？为啥a是3？它不是自加了两次吗？<br>本人做完题之后马上上网查阅有关sizeof的相关技术文档，让我想起了sizeof的一些细节：<strong>sizeof对它的操作数，也就是操作对象，它是不给予运算的，也就是不会产生副作用。</strong>  </p><blockquote><p>副作用：b &#x3D; a+3； 这条表达式的副作用就是b的值被修改为该表达式的值，该表达式的值是a+3，这就是副作用。</p></blockquote><p>也就是说，不管你sizeof后跟的表达式对产生怎样的副作用，sizeof它只求该表达式的值，sizeof所求的值不是普通的数据运算，它所求的值是这个表达式最终会变成什么类型，它只求这个。  </p><p>说的很懵，先上基础图：<img src="https://img-blog.csdnimg.cn/20191120163507592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70" alt="基础图"><br>有了这个基础，再看看下面的测试结果。</p><p>下面这两张图是测试说明，sizeof后跟的表达式不会产生副作用。<br><img src="https://img-blog.csdnimg.cn/20191120163637821.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70" alt="sizeof测试"><img src="https://img-blog.csdnimg.cn/20191120163646962.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70" alt="sizeof测试"></p><p>这张图就用到了上面的基础类型自动转换的知识，在a+c这个表达式中，a是int，c是double，而a+c经过运算之后，最终这个a+c的类型就会自动转换成double型，而这个double就是sizeof想要的最终值，其他的工作，例如产生副作用这样的事它不干，接着看下面的图：<img src="https://img-blog.csdnimg.cn/20191120163705130.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70"></p><p>下面两张测试图可以很明显的看出，sizeof根本不会让a&#x3D;a+c这个表达式产生副作用，使a等于a+c的值。<br>它只关心这条a&#x3D;a+c表达式运算完后，最终的类型结果是什么，这才是它想要的。<br><img src="https://img-blog.csdnimg.cn/20191120164433254.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20191120164441746.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2Njg3MTUz,size_16,color_FFFFFF,t_70"></p><p><strong>总结：sizeof后跟表达式时，它只关心该表达式运算完后 (相应的类型自动转换完后) 是什么类型，然后对该最终类型进行计算字节大小并返回size_t（无符号整形）类型的值给变量b，<mark class="hl-label orange">不对表达式产生副作用</mark> 。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 刷题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客添加自定义css和js文件</title>
       <link href="/Add-custom-css-and-js-files.html"/>
       <url>/Add-custom-css-and-js-files.html</url>

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>目录跳转不准确</title>
+      <link href="/toc-jump-error.html"/>
+      <url>/toc-jump-error.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这个问题很早就发现了，一直没有去理会，今天周末，刚好捣鼓了一下，解决了这个点击目录跳转不准确的问题。分享一下解决方法，希望能帮助到有需要的小伙伴。</p><h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>当点击文章中的目录时，跳转到的地方并不是目录所指向的标题，而是感觉在随便乱跳转。</p><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>因为懒加载要浏览到那个位置才加载那个位置的图片，然后我文章中有图片，所以点击目录跳转的时候，因为下面有些没有浏览到的图片还没有加载，所以页面的高度计算会有误差，我长的文章都是点击目录跳转有问题的（博客中的问题已修复）。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>关闭懒加载功能即可，修改 <mark class="hl-label orange">_config.butterfly.yml</mark> 主题配置文件，修改内容如下：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Lazyload (圖片懶加載)</span><br><span class="line"># https://github.com/verlok/vanilla-lazyload</span><br><span class="line">lazyload:</span><br><span class="line"><span class="deletion">-  enable: true</span></span><br><span class="line"><span class="addition">+  enable: false</span></span><br><span class="line">  field: site # site/post</span><br><span class="line">  placeholder:</span><br><span class="line">  blur: true</span><br></pre></td></tr></table></figure><h1 id="Hexo三连"><a href="#Hexo三连" class="headerlink" title="Hexo三连"></a>Hexo三连</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>添加设置面板与导航栏设置按钮</title>
       <link href="/setting-button-tutorial.html"/>
       <url>/setting-button-tutorial.html</url>

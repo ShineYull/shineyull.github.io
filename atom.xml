@@ -6,7 +6,7 @@
   <link href="https://blog.shineyu.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.shineyu.cn/"/>
-  <updated>2023-02-06T10:42:05.000Z</updated>
+  <updated>2023-02-11T15:25:15.000Z</updated>
   <id>https://blog.shineyu.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>即刻短文的音乐不显示</title>
+    <link href="https://blog.shineyu.cn/essay-music-notshow.html"/>
+    <id>https://blog.shineyu.cn/essay-music-notshow.html</id>
+    <published>2023-02-11T15:25:15.000Z</published>
+    <updated>2023-02-11T15:25:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>总会在添加一些东西之后，出现一些奇奇怪怪的bug，比如今天更新完新功能后就看到即刻短文中的音乐不显示了。</p><h1 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h1><p>在添加完全局音乐和音乐页面之后，查看了一下即刻短文中的音乐能不能正常播放，结果看到即刻短文里的音乐不显示了。</p><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>因为我将meting换成了meting2，所以在即刻短文中，也需要使用meting2，不然就会报错，然后就会导致不显示了。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>找到themes\butterfly\layout\includes\page\essay.pug文件，修改如下：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if item.image</span><br><span class="line">.bber-container-img</span><br><span class="line">    each iten, indey in item.image</span><br><span class="line">    a.bber-content-img(href=item.image[indey], target=&quot;_blank&quot;, data-fancybox=&quot;gallery&quot;, data-caption=&quot;&quot;)</span><br><span class="line">        img(src=item.image[indey])</span><br><span class="line">    .bber-content-noimg</span><br><span class="line">    .bber-content-noimg</span><br><span class="line">    .bber-content-noimg</span><br><span class="line">if item.aplayer</span><br><span class="line">.bber-music</span><br><span class="line"><span class="deletion">-    .aplayer.no-destroy(data-id=item.aplayer.id data-server=item.aplayer.server data-type=&quot;song&quot;  data-order=&quot;list&quot; data-preload=&quot;none&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; data-theme=&#x27;#3b70fc&#x27;)</span></span><br><span class="line"><span class="addition">+    meting-js(id=item.aplayer.id server=item.aplayer.server type=&quot;song&quot; mutex=&quot;true&quot; preload=&quot;auto&quot; theme=&quot;#3b70fc&quot; order=&quot;list&quot;)</span></span><br></pre></td></tr></table></figure><h1 id="Hexo三连"><a href="#Hexo三连" class="headerlink" title="Hexo三连"></a>Hexo三连</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">解决博客中即刻短文不显示音乐的问题。</summary>
+    
+    
+    
+    <category term="问题笔记" scheme="https://blog.shineyu.cn/categories/%E9%97%AE%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.shineyu.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>twikoo评论的气泡美化</title>

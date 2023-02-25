@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Qexo入门之自定义私有api</title>
+      <link href="/qexo-create-private-api.html"/>
+      <url>/qexo-create-private-api.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>昨天去上海出差了，公干完后跟着公司去了迪斯尼玩了一圈，不得不说，迪斯尼的那个巡演很棒，全都是迪斯尼IP的人物，看的激动坏了！<br>因为心系博客的文章更新，所以当天晚上就买了机票飞回来了，今天咱就说说怎么自定义一个私有的api，意思就是自己用的，通过登录验证的用户才能使用的api。<br>qexo在部署运行后会自动生成一个api key，这个api key是在鉴权时使用的，现在还用不到，但是后面会用到，所以现在先自定义个一个私有的api来获取这个key的值，看看这个值的内容是啥，方便后面使用这个key。</p><h1 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h1><p>效果如下图：<br><img src="/img/apikey-value.webp" alt="获取api密钥"></p><h1 id="定义并实现私有api"><a href="#定义并实现私有api" class="headerlink" title="定义并实现私有api"></a>定义并实现私有api</h1><p>找到 hexoweb\api.py 文件，在文件末尾添加内容如下：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+# 获取api key</span></span><br><span class="line"><span class="addition">+@login_required(login_url=&quot;/login/&quot;)</span></span><br><span class="line"><span class="addition">+def get_apikey(request):</span></span><br><span class="line"><span class="addition">+    msg = SettingModel.objects.get(name=&quot;WEBHOOK_APIKEY&quot;).content</span></span><br><span class="line"><span class="addition">+    context = &#123;&quot;msg&quot;: msg, &quot;status&quot;: True&#125;</span></span><br><span class="line"><span class="addition">+    return JsonResponse(safe=False, data=context)</span></span><br></pre></td></tr></table></figure><h1 id="配置私有api路由"><a href="#配置私有api路由" class="headerlink" title="配置私有api路由"></a>配置私有api路由</h1><p>找到 core\urls.py 文件，添加如下内容：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    path(&#x27;api/run_online_script/&#x27;, run_online_script, name=&#x27;run_online_script&#x27;),</span><br><span class="line"><span class="addition">+    path(&#x27;api/get_apikey/&#x27;, get_apikey, name=&quot;get_apikey&quot;),</span></span><br><span class="line"></span><br><span class="line">    path(&#x27;pub/save/&#x27;, pub.save, name=&#x27;pub_save&#x27;),</span><br></pre></td></tr></table></figure><h1 id="Qexo四连"><a href="#Qexo四连" class="headerlink" title="Qexo四连"></a>Qexo四连</h1><p>在cmd命令行中输入如下命令运行部署Qexo项目：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Qexo</span>&gt; <span class="title">pip3</span> <span class="title">install</span> -<span class="title">r</span> <span class="title">requirements.txt</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">makemigrations</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">migrate</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">runserver</span> --<span class="title">noreload</span></span></span><br></pre></td></tr></table></figure><p>访问 <strong><a href="http://127.0.0.1:8000/api/get_apikey/">http://127.0.0.1:8000/api/get_apikey/</a></strong> 查看页面效果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Qexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Qexo入门之自定义对公api</title>
       <link href="/qexo-create-public-api.html"/>
       <url>/qexo-create-public-api.html</url>

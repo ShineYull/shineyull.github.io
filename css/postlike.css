@@ -1,0 +1,1 @@
+.like-button{display:inline-block;padding:10px 24px;background:var(--btn-bg);color:var(--btn-color);border-radius:15px;margin-left:10px;-webkit-user-select:none}.post-like :hover{background-color:var(--btn-hover-color);color:#fff}.post-like{position:relative;margin-top:10px;width:100%;text-align:center}

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Qexo入门之自定义数据库</title>
+      <link href="/qexo-create-db.html"/>
+      <url>/qexo-create-db.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>魔改后端肯定缺少不了数据库的的操作，在qexo中有个数据库操作框架，叫做ORM框架，是做来抹平python与数据库操作之间的繁琐操作，提供统一的操作接口。<br>这篇文章就说一下怎么自定义一个计数用的数据库，后续读者们可以任意去做自己想要的扩展。因为涉及到数据库操作，所以操作数据库的api我们需要做成私有的api。然后我们再做一个模板用来展示数据库中的计数值，这需要制作一个页面来展示计数值。</p><h1 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h1><p>效果如下：<br><img src="/img/qexo-db.webp" alt="数据库记录操作页面"></p><h1 id="创建自定义数据库"><a href="#创建自定义数据库" class="headerlink" title="创建自定义数据库"></a>创建自定义数据库</h1><p>找到 hexoweb\models.py 文件，在文件末尾添加自定义数据库如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CountModel</span>(models.Model):</span><br><span class="line">    <span class="built_in">id</span> = models.IntegerField(primary_key=<span class="literal">True</span>, editable=<span class="literal">False</span>)</span><br><span class="line">    cnt=models.IntegerField(default=<span class="number">0</span>)</span><br></pre></td></tr></table></figure><h1 id="创建自定义私有api"><a href="#创建自定义私有api" class="headerlink" title="创建自定义私有api"></a>创建自定义私有api</h1><p>找到 hexoweb\api.py 文件，在文件的末尾添加私有api方法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hexoweb.models <span class="keyword">import</span> CountModel  <span class="comment">#这一句添加到文件开头的地方</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置计数</span></span><br><span class="line"><span class="meta">@login_required(<span class="params">login_url=<span class="string">&quot;/login/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_count</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method != <span class="string">&quot;GET&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        count, b = CountModel.objects.get_or_create(<span class="built_in">id</span>=<span class="number">1</span>, defaults=&#123;<span class="string">&#x27;cnt&#x27;</span>:<span class="number">0</span>&#125;)</span><br><span class="line">        count.cnt = count.cnt + <span class="number">1</span></span><br><span class="line">        count.save()</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        <span class="keyword">return</span> JsonResponse(safe=<span class="literal">False</span>, data=&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;出错啦！&quot;</span>, <span class="string">&quot;status&quot;</span>:<span class="literal">False</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(safe=<span class="literal">False</span>, data=&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;设置计数增加1成功！&quot;</span>, <span class="string">&quot;status&quot;</span>:<span class="literal">True</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取计数</span></span><br><span class="line"><span class="meta">@login_required(<span class="params">login_url=<span class="string">&quot;/login/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_count</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method != <span class="string">&quot;GET&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        count, b = CountModel.objects.get_or_create(<span class="built_in">id</span>=<span class="number">1</span>, defaults=&#123;<span class="string">&#x27;cnt&#x27;</span>:<span class="number">0</span>&#125;)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> error:</span><br><span class="line">        <span class="keyword">return</span> JsonResponse(safe=<span class="literal">False</span>, data=&#123;<span class="string">&quot;msg&quot;</span>:<span class="string">&quot;出错啦！&quot;</span>, <span class="string">&quot;status&quot;</span>:<span class="literal">False</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(safe=<span class="literal">False</span>, data=&#123;<span class="string">&quot;msg&quot;</span>:count.cnt, <span class="string">&quot;status&quot;</span>:<span class="literal">True</span>&#125;)</span><br></pre></td></tr></table></figure><h1 id="创建模板页面"><a href="#创建模板页面" class="headerlink" title="创建模板页面"></a>创建模板页面</h1><p>新建 templates\home\count.html 文件，代码如下：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#x27;layouts/base.html&#x27; %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block stylesheets %&#125;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .container-fluid.mt--6 &#123;</span><br><span class="line">        margin-top: 50px !important;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&#123;% endblock stylesheets %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    &lt;!-- Page content --&gt;</span><br><span class="line">    &lt;div class=&quot;container-fluid mt--6&quot;&gt;</span><br><span class="line">        &lt;p id=&quot;id-count-sum&quot;&gt;0&lt;/p&gt;</span><br><span class="line">        &lt;button onclick=&quot;set_count()&quot;&gt;设置计数增加1&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;get_count()&quot;&gt;获取计数总数显示&lt;/button&gt;</span><br><span class="line">        &#123;% include &quot;includes/footer.html&quot; %&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endblock content %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- Specific JS goes HERE --&gt;</span><br><span class="line">&#123;% block javascripts %&#125;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function set_count() &#123;</span><br><span class="line">            let loading = new KZ_Loading(&#x27;正在删除中...&#x27;);</span><br><span class="line">            loading.show();</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: &#x27;/api/set_count/&#x27;,</span><br><span class="line">                method: &#x27;GET&#x27;,</span><br><span class="line">                dataType: &#x27;JSON&#x27;,</span><br><span class="line">                success: function (res) &#123;</span><br><span class="line">                    loading.destroy();</span><br><span class="line">                    if (res.status) &#123;</span><br><span class="line">                        notyf.success(&#x27;设置成功！&#x27;);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        notyf.error(res.msg);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                error: function (res) &#123;</span><br><span class="line">                    loading.destroy();</span><br><span class="line">                    notyf.error(&quot;网络错误！&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        function get_count() &#123;</span><br><span class="line">            let loading = new KZ_Loading(&#x27;正在删除中...&#x27;);</span><br><span class="line">            loading.show();</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: &#x27;/api/get_count/&#x27;,</span><br><span class="line">                method: &#x27;GET&#x27;,</span><br><span class="line">                dataType: &#x27;JSON&#x27;,</span><br><span class="line">                success: function (res) &#123;</span><br><span class="line">                    loading.destroy();</span><br><span class="line">                    if (res.status) &#123;</span><br><span class="line">                        notyf.success(&#x27;获取成功！&#x27;);</span><br><span class="line">                        $(&quot;#id-count-sum&quot;).html(res.msg);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        notyf.error(res.msg);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                error: function (res) &#123;</span><br><span class="line">                    loading.destroy();</span><br><span class="line">                    notyf.error(&quot;网络错误！&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&#123;% endblock javascripts %&#125;</span><br></pre></td></tr></table></figure><h1 id="实现页面处理方法"><a href="#实现页面处理方法" class="headerlink" title="实现页面处理方法"></a>实现页面处理方法</h1><p>找到 hexoweb\views.py 文件，在文件末尾添加如下代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required(<span class="params">login_url=<span class="string">&quot;/login/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> request.user.is_staff:</span><br><span class="line">        logging.info(<span class="string">f&quot;子用户<span class="subst">&#123;request.user.username&#125;</span>尝试访问<span class="subst">&#123;request.path&#125;</span>被拒绝&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> page_403(request, <span class="string">&quot;您没有权限访问此页面&quot;</span>)</span><br><span class="line">    context = <span class="built_in">dict</span>()</span><br><span class="line">    context.update(get_custom_config())</span><br><span class="line">    save_setting(<span class="string">&quot;LAST_LOGIN&quot;</span>, <span class="built_in">str</span>(<span class="built_in">int</span>(time())))</span><br><span class="line">    html_template = loader.get_template(<span class="string">&#x27;home/count.html&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(html_template.render(context, request))</span><br></pre></td></tr></table></figure><h1 id="设置私有api路由和新页面的路由"><a href="#设置私有api路由和新页面的路由" class="headerlink" title="设置私有api路由和新页面的路由"></a>设置私有api路由和新页面的路由</h1><p>找到 core\urls.py 文件，添加如下路由设置：</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    path(&#x27;&#x27;, index, name=&#x27;home&#x27;),</span><br><span class="line"><span class="addition">+    path(&#x27;count/&#x27;, count, name=&#x27;count&#x27;),</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+    path(&#x27;api/set_count/&#x27;, set_count, name=&quot;set_count&quot;),</span></span><br><span class="line"><span class="addition">+    path(&#x27;api/get_count/&#x27;, get_count, name=&quot;get_count&quot;),</span></span><br><span class="line">    path(&#x27;api/auth/&#x27;, auth, name=&#x27;auth&#x27;),</span><br><span class="line">    path(&#x27;api/save/&#x27;, save, name=&#x27;save&#x27;),</span><br></pre></td></tr></table></figure><h1 id="Qexo四连"><a href="#Qexo四连" class="headerlink" title="Qexo四连"></a>Qexo四连</h1><p>在cmd命令行中输入如下命令运行部署Qexo项目：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Qexo</span>&gt; <span class="title">pip3</span> <span class="title">install</span> -<span class="title">r</span> <span class="title">requirements.txt</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">makemigrations</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">migrate</span></span></span><br><span class="line"><span class="function"><span class="title">E</span>:\<span class="title">Qexo</span>&gt; <span class="title">python3</span> <span class="title">manage.py</span> <span class="title">runserver</span> --<span class="title">noreload</span></span></span><br></pre></td></tr></table></figure><p>访问 <strong><a href="http://127.0.0.1:8000/count/">http://127.0.0.1:8000/count/</a></strong> 查看页面效果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客相关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Qexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>即刻短文支持多个链接与视频</title>
       <link href="/essay-support-links-and-video.html"/>
       <url>/essay-support-links-and-video.html</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -180,9 +207,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -207,9 +234,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -234,9 +261,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -286,9 +313,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -313,9 +340,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -340,9 +367,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -417,9 +444,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -444,9 +471,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> 热门文章 </tag>
             
@@ -473,9 +500,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> 热门文章 </tag>
             

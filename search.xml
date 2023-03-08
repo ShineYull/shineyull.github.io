@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>AI绘图入门之本地部署</title>
+      <link href="/stable-diffusion-webui-deploy.html"/>
+      <url>/stable-diffusion-webui-deploy.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是AI创作系列的第一篇文章，我希望AI创作系列的文章能一直延续下去，想要找到志同道合的朋友，或者有不懂的问题想要请教、交流都可以加企鹅群<strong>398637405</strong>，或者博客评论告诉我。希望大伙玩的开心呀！</p><p><img src="/img/AI-image.webp" alt="企鹅群二维码"></p><h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="/img/sd_deploy1.webp" alt="Stable Diffusion WebUI项目界面"><img src="/img/sd_deploy2.webp" alt="第一张 国风AI绘图"><img src="/img/sd_deploy3.webp" alt="第二张 二次元AI绘图"></p><h1 id="Stable-Diffusion-WebUI-介绍"><a href="#Stable-Diffusion-WebUI-介绍" class="headerlink" title="Stable Diffusion WebUI 介绍"></a>Stable Diffusion WebUI 介绍</h1><p><strong>Stable Diffusion Web UI</strong> 是一个使用gradio模块开发的前端项目，而gradio模块则是专门用于开发人工智能可视化网页的。<strong>Stable Diffusion Web UI</strong> 提供了多种功能，如 txt2img、img2img、inpaint 等，还包含了许多模型融合改进、图片质量修复等附加升级。通过调节不同参数可以生成不同效果，用户可以根据自己的需要和喜好进行创作。我们可以通过Stable Diffusion Web UI 训练我们自己的模型，它提供了多种训练方式，通过掌握训练方法可以自己制作模型。  </p><blockquote><p>Stable Diffusion Web UI 仓库：<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">https://github.com/AUTOMATIC1111/stable-diffusion-webui</a><br>Gradio文档：<a href="https://gradio.app/docs/">https://gradio.app/docs/</a></p></blockquote><h1 id="部署-Stable-Diffusion-WebUI-项目"><a href="#部署-Stable-Diffusion-WebUI-项目" class="headerlink" title="部署 Stable Diffusion WebUI 项目"></a>部署 Stable Diffusion WebUI 项目</h1><h2 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h2><p>打开cmd命令行界面，输入如下命令：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git &amp;&amp; <span class="built_in">cd</span> stable-diffusion-webui</span><br></pre></td></tr></table></figure><h2 id="替换为Github镜像站"><a href="#替换为Github镜像站" class="headerlink" title="替换为Github镜像站"></a>替换为Github镜像站</h2><p>等待项目拉取完成并进入文件夹后，我们需要先将pip的国内源和github的镜像站换上，因为需要下载的东西实在太多，所以建议切换成国内的源和镜像站进行部署，当然了，如果你科学上网的网速足够快，也可以忽略这一段。  </p><p>使用vscode或者记事本，找到项目根目录中的 <strong>launch.py</strong> 文件，做如下内容修改：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将它打开并找到里面所有的 https://github.com/ 字符串，</span><br><span class="line">将它们都替换成 https://ghproxy.com/https://github.com/ 即可。</span><br><span class="line">到这里就完成了镜像站的替换了。</span><br></pre></td></tr></table></figure><h2 id="安装Python3-10-6"><a href="#安装Python3-10-6" class="headerlink" title="安装Python3.10.6"></a>安装Python3.10.6</h2><p>接下来我们去<a href="https://www.python.org/downloads/windows/">python官网</a>来安装一下<strong>python3.10.6</strong>，版本强制要求就是3.10.6。<br>进入官网下滑找到python3.10.6版本下载即可，下载完双击安装，这里就不赘述了。</p><h2 id="更换pip源为国内源"><a href="#更换pip源为国内源" class="headerlink" title="更换pip源为国内源"></a>更换pip源为国内源</h2><p>接下来，我们更换一下pip的源为国内源，打开cmd并输入如下命令：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure><h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><p>一切都做好之后就可以开始运行项目进行本地部署了，在项目根目录下输入如下命令并回车：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\webui-user.bat</span><br></pre></td></tr></table></figure><p>耐心等待它运行完成，在运行期间，会下载安装很多模块，也会拉取一些需要的仓库，所以一般都比较久，大约30分钟左右。<br>运行完成后，在浏览器输入 <strong><a href="http://127.0.0.1:7860/">http://127.0.0.1:7860</a></strong> 链接并回车即可访问项目。  </p><h1 id="部署完成"><a href="#部署完成" class="headerlink" title="部署完成"></a>部署完成</h1><p>部署完后，可以在 <strong>txt2img</strong> 选项卡中的第一栏输入框处输入如下提示词：</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">girl, aqua eyes, baseball cap, blonde hair, closed mouth, earrings, green background, hat, hoop earrings, jewelry, looking at viewer, shirt, short hair, simple background, solo, upper body, yellow shirt</span><br></pre></td></tr></table></figure><p>输入完成后点击右边的 <strong>Generate</strong> 按钮，等到下面的进度条跑完，就可以看到新鲜出炉的图片啦！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> AI绘图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Qexo添加点赞功能</title>
       <link href="/qexo-postlike.html"/>
       <url>/qexo-postlike.html</url>

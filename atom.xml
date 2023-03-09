@@ -6,7 +6,7 @@
   <link href="https://blog.shineyu.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.shineyu.cn/"/>
-  <updated>2023-03-08T18:10:00.000Z</updated>
+  <updated>2023-03-09T17:39:00.000Z</updated>
   <id>https://blog.shineyu.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI绘画之输入文字生成图片</title>
+    <link href="https://blog.shineyu.cn/stable-diffusion-webui-txt2img.html"/>
+    <id>https://blog.shineyu.cn/stable-diffusion-webui-txt2img.html</id>
+    <published>2023-03-09T17:39:00.000Z</published>
+    <updated>2023-03-09T17:39:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近都想着先把 Stable Diffusion Webui 的基础用法讲明白，让大家能够轻松的上手制作自己想要的图片。工作上也有点忙，每天回到家也是10点多了，近期每一篇文章发出都是在凌晨两三点。文章内容如果有晦涩难懂的地方，可以评论区告诉我，我会马上修改的。</p><h1 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h1><p><a href="https://civitai.com/">C 站</a> 里有各路大佬训练出来并上传免费下载使用的模型，你也可以将自己训练的模型上传到这里。点击前面的链接进入C 站，找到你喜欢的模型并下载，注意要下载大模型，也就是大小要有1GB以上的模型，也可以直接筛选下载CHECKPOINT类型的模型。  </p><p>下载完后，将模型放到 stable-diffusion-webui\models\Stable-diffusion 文件夹中，然后打开 Stable Diffusion Webui 页面，在页面左上角有一个下拉框，点击下拉框找到你刚刚的模型，如果找不到，可以点击下拉框右边的刷新图标，点击它即可刷新出你刚刚放置进去的模型，如果刷新不出来，请重新运行启动项目。</p><p><img src="/img/ai_prompt1.webp" alt="选择或刷新模型"></p><h1 id="文字提示词"><a href="#文字提示词" class="headerlink" title="文字提示词"></a>文字提示词</h1><p>当选择完模型之后，就可以到文字提示词输入框中输入你想要的提示词了，如下图：<br><img src="/img/ai_prompt2.webp" alt="选择或刷新模型"></p><p>因为不同的模型，输入相同的提示词都会生成不同的图片，因为他们的风格不相同，所以这个具体效果要在C站上查看具体的模型的相关提示词了，一般在模型的封面处，点击它的图片，进入的页面中右边就是该图片的提示词，如下图：<br><img src="/img/ai_prompt3.webp" alt="图片提示词"></p><h1 id="Prompt搜索"><a href="#Prompt搜索" class="headerlink" title="Prompt搜索"></a>Prompt搜索</h1><p><a href="https://lexica.art/">Lexica</a> 是一个可以搜索图片的网站，并且搜索出来的图片还会提供对应的prompt给你，还能在图片上添加或者删减prompt来进行二次创作，如下图：<br><img src="/img/ai_prompt4.webp" alt="Lexica官网"></p><p>随便点击一张图片，在弹出的窗口中可以看到 <strong>copy prompt按钮</strong> 和 <strong>open in editor按钮</strong>，他们分别是复制和编辑，如下图：<br><img src="/img/ai_prompt5.webp" alt="点击图片"></p><p>当我们点击 <strong>open in editor按钮</strong> 后，将会进入如下页面：<br><img src="/img/ai_prompt6.webp" alt="编辑图片"><br>在页面中，最上面的第一栏输入框对应的就是prompt提示词，再往下的第二个输入框对应的就是Negative prompt提示词，我们可以在这里进行自己想要的修改，修改完后，我们可以点击右下角的 <strong>Generate按钮</strong> 进行生成，等待一会儿就会有新生成的图片显示出来了。</p>]]></content>
+    
+    
+    <summary type="html">AI绘图的基本就是通过用户输入的文字提示词，然后生成相对应的图片。</summary>
+    
+    
+    
+    <category term="人工智能" scheme="https://blog.shineyu.cn/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="教程" scheme="https://blog.shineyu.cn/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="AI绘图" scheme="https://blog.shineyu.cn/tags/AI%E7%BB%98%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>AI绘图入门之本地部署</title>

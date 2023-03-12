@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>AI绘画入门之使用图片生成图片</title>
+      <link href="/sd-webui-img2img.html"/>
+      <url>/sd-webui-img2img.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>stable diffusion webui（后面简称 SD webui）的功能有很多，其中就有使用图片来生成图片（后面简称图生图）的功能。</p><h1 id="图生图介绍"><a href="#图生图介绍" class="headerlink" title="图生图介绍"></a>图生图介绍</h1><p>图生图其实就是比文生图（文字生成图片的简称）多上传了一张图片，上传这张图片的作用是给sd webui做采样使用，也就是说生成出来的图片会根据你上传的图片来二次加工，并通过调整 <strong>Denoising strength</strong> 参数来控制生成的图片是否跟上传的图片有关联，当 <strong>Denoising strength</strong> 的参数越大时，生成的图片就和你上传的图片没有关联了，当 <strong>Denoising strength</strong> 越小时，生成的图片就会和你上传的图片有很大的关联。点击入下图的标签切换到图生图界面：<br><img src="/img/tushengtu3.webp" alt="图生图界面"></p><h1 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h1><p>点击如下图的地方，就会弹出一个上传窗口，在上传窗口中选择你要上传的图片，然后再点击窗口右下角的打开按钮即可上传：<br><img src="/img/tushengtu1.webp" alt="点击此处上传图片"></p><h1 id="添加-Prompt-提示词"><a href="#添加-Prompt-提示词" class="headerlink" title="添加 Prompt 提示词"></a>添加 Prompt 提示词</h1><div class="note green icon-padding modern"><i class="note-icon fa-solid fa-question"></i><p>为什么上传了图片还需要给prompt提示词？ </p></div>  <p>其实可以不用给提示词，那样就和文生图一样，sd webui 会按照模型的风格来随机生成一张图片，如果此时上传了图片，那么sd webui 就会根据上传的图片来随机生成一张风格差不多的图片。如果即上传了图片，又填写了prompt提示词，那么 sd webui 就会根据prompt的提示来生成一张和上传的图片风格差不多的图片。</p><h1 id="调整-Denoising-strength-参数"><a href="#调整-Denoising-strength-参数" class="headerlink" title="调整 Denoising strength 参数"></a>调整 Denoising strength 参数</h1><p>可以在这里调整 Denoising strength 参数，如下图：<br><img src="/img/tushengtu2.webp" alt="此处可调节 Denoising strength 参数"><br>当 <strong>Denoising strength</strong> 的参数越大时，生成的图片就和你上传的图片没有关联了，当 <strong>Denoising strength</strong> 越小时，生成的图片就会和你上传的图片有很大的关联。搭配不同的 prompt提示词，生成的图片就越有意思。</p><h1 id="图生图示例"><a href="#图生图示例" class="headerlink" title="图生图示例"></a>图生图示例</h1><p>我先是用文生图生成一张图片，然后再将这张照片上传到图生图，接着我在prompt中输入背上双肩包的提示词，看下生成的图片吧：<br><img src="/img/tushengtu4.webp" alt="直接生成了背面的图片"><br><img src="/img/tushengtu5.webp" alt="再来个正面的"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> AI绘图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AI绘画之输入文字生成图片</title>
       <link href="/stable-diffusion-webui-txt2img.html"/>
       <url>/stable-diffusion-webui-txt2img.html</url>

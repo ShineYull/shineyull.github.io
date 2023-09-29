@@ -30,6 +30,8 @@
     
     
     
+    <category term="博客相关" scheme="https://blog.shineyu.cn/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+    
     
     <category term="教程" scheme="https://blog.shineyu.cn/tags/%E6%95%99%E7%A8%8B/"/>
     
@@ -51,6 +53,8 @@
     
     
     
+    <category term="博客相关" scheme="https://blog.shineyu.cn/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+    
     
     <category term="教程" scheme="https://blog.shineyu.cn/tags/%E6%95%99%E7%A8%8B/"/>
     
@@ -71,6 +75,8 @@
     <summary type="html">hexo教程，给即刻短文增加话题与心情两个标签。</summary>
     
     
+    
+    <category term="博客相关" scheme="https://blog.shineyu.cn/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
     
     
     <category term="教程" scheme="https://blog.shineyu.cn/tags/%E6%95%99%E7%A8%8B/"/>
